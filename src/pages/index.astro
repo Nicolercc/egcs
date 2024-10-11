@@ -1,4 +1,13 @@
 ---
+import Navbar from "../components/Navbar.astro";
+import RelatedProjects from "../components/relatedprojects.astro";
+import BaseLayout from '../layouts/baselayout.astro'
+
+const services = [
+  { title: 'Project Management', description: 'Efficient project planning and execution.', category: 'Project Management' },
+  { title: 'Asbestos Management', description: 'Safe handling and removal of asbestos materials.', category: 'Asbestos Management' },
+  { title: 'Cleaning Services', description: 'Professional cleaning for various environments.', category: 'Cleaning Services' },
+];
 ---
 
 <html lang="en">
@@ -10,11 +19,12 @@
 		<title>Our Business Services</title>
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 	</head>
-	<body class="bg-gray-100">
+	<BaseLayout class="bg-gray-100">
+	
 		<!-- Hero Section -->
 		<section class="relative h-screen flex items-center justify-center text-center text-white">
 			<div class="absolute inset-0 bg-black opacity-50"></div>
-			<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1920x1080?business');"></div>
+			<div class="absolute inset-0 bg-cover bg-center w-100 " style="background-image: url('https://media.istockphoto.com/id/1917054502/photo/labourers-planning-on-site.jpg?s=612x612&w=is&k=20&c=4TadokSYurPDwexE96mdkK0MkoiOMNiMNRK4ehJcxfE=');"></div>
 			<div class="relative z-10 max-w-3xl mx-auto px-4">
 				<h1 class="text-5xl font-bold mb-4">Welcome to Our Services</h1>
 				<p class="text-xl mb-8">We provide expert solutions for your needs.</p>
@@ -26,15 +36,32 @@
 			<div class="max-w-6xl mx-auto">
 				<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Services</h2>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					{['Project Management', 'Asbestos Management', 'Cleaning Services'].map((service) => (
+					{services.map((service) => (
 						<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-							<h3 class="text-xl font-semibold mb-3 text-blue-600">{service}</h3>
-							<p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="/services" class="text-blue-500 hover:text-blue-700 font-medium">Learn More &rarr;</a>
+							<h3 class="text-xl font-semibold mb-3 text-blue-600">{service.title}</h3>
+							<p class="text-gray-600 mb-4">{service.description}</p>
+							<a href={`/services/${service.category.toLowerCase().replace(' ', '-')}`} class="text-blue-500 hover:text-blue-700 font-medium">Learn More &rarr;</a>
 						</div>
 					))}
 				</div>
 			</div>
 		</section>
-	</body>
+
+		<!-- Related Projects Section -->
+		<!-- <section class="py-16 px-4 bg-gray-50">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Explore Our Service Categories</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					{services.map((service) => (
+						<div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition duration-300">
+							<h3 class="text-2xl font-semibold mb-4 text-blue-600">{service.title}</h3>
+							<p class="text-gray-600 mb-6">{service.description}</p>
+							<RelatedProjects category={service.category} />
+							<a href={`/services/${service.category.toLowerCase().replace(' ', '-')}`} class="mt-4 inline-block text-blue-500 hover:text-blue-700 font-medium">View All Services &rarr;</a>
+						</div>
+					))}
+				</div>
+			</div>
+		</section> -->
+	</BaseLayout>
 </html>

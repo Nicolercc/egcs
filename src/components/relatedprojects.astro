@@ -1,0 +1,86 @@
+---
+interface Service {
+  title: string;
+  description: string;
+  link: string;
+}
+
+interface Props {
+  category: 'Project Management' | 'Asbestos Management' | 'Cleaning Services';
+}
+
+const { category } = Astro.props;
+
+const serviceCategories: Record<Props['category'], Service[]> = {
+  'Project Management': [
+    { title: 'Task Management', description: 'Efficiently organize and track project tasks.', link: '/services/task-management' },
+    { title: 'Resource Allocation', description: 'Optimize resource distribution for project success.', link: '/services/resource-allocation' },
+    { title: 'Risk Assessment', description: 'Identify and mitigate potential project risks.', link: '/services/risk-assessment' },
+  ],
+  'Asbestos Management': [
+    { title: 'Inspection', description: 'Thorough asbestos inspections for safety compliance.', link: '/services/asbestos-inspection' },
+    { title: 'Remediation', description: 'Safe and effective asbestos removal and remediation.', link: '/services/asbestos-remediation' },
+    { title: 'Compliance', description: 'Ensure adherence to asbestos regulations and standards.', link: '/services/asbestos-compliance' },
+  ],
+  'Cleaning Services': [
+    { title: 'Residential Cleaning', description: 'Professional cleaning services for homes.', link: '/services/residential-cleaning' },
+    { title: 'Commercial Cleaning', description: 'Comprehensive cleaning solutions for businesses.', link: '/services/commercial-cleaning' },
+    { title: 'Specialty Cleaning', description: 'Specialized cleaning for unique environments.', link: '/services/specialty-cleaning' },
+  ],
+};
+
+const services = serviceCategories[category];
+---
+
+<div class="relative bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+  <div class="carousel overflow-hidden">
+    <div class="carousel-inner flex transition-transform duration-300 ease-in-out">
+      {services.map((service, index) => (
+        <div class="carousel-item flex-none w-full">
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">{service.title}</h3>
+          <p class="text-gray-600 mb-4">{service.description}</p>
+          <a href={service.link} class="text-blue-500 hover:text-blue-700 font-medium">Learn More &rarr;</a>
+        </div>
+      ))}
+    </div>
+  </div>
+  <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100" id="prevBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100" id="nextBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+</div>
+
+<script>
+    function setupCarousel() {
+      const carousel = document.querySelector('.carousel-inner') as HTMLElement;
+      const items = document.querySelectorAll('.carousel-item');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let currentIndex = 0;
+  
+      function showSlide(index: number) {
+        if (carousel) {
+          carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+      }
+  
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        showSlide(currentIndex);
+      });
+  
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showSlide(currentIndex);
+      });
+    }
+  
+    // Run the setup function when the DOM is ready
+    document.addEventListener('DOMContentLoaded', setupCarousel);
+  </script>

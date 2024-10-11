@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/baselayout.astro";
+const services = {
+  'Project Management': [
+    { title: 'Task Management', description: 'Efficiently organize and track project tasks.', image: 'https://source.unsplash.com/random/800x600?task,management' },
+    { title: 'Resource Allocation', description: 'Optimize resource distribution for project success.', image: 'https://source.unsplash.com/random/800x600?resource,allocation' },
+    { title: 'Risk Assessment', description: 'Identify and mitigate potential project risks.', image: 'https://source.unsplash.com/random/800x600?risk,assessment' },
+  ],
+  'Asbestos Management': [
+    { title: 'Asbestos Inspection', description: 'Thorough asbestos inspections for safety compliance.', image: 'https://source.unsplash.com/random/800x600?asbestos,inspection' },
+    { title: 'Asbestos Removal', description: 'Safe and effective asbestos removal and remediation.', image: 'https://source.unsplash.com/random/800x600?asbestos,removal' },
+    { title: 'Compliance Management', description: 'Ensure adherence to asbestos regulations and standards.', image: 'https://source.unsplash.com/random/800x600?compliance,management' },
+  ],
+  'Cleaning Services': [
+    { title: 'Residential Cleaning', description: 'Professional cleaning services for homes.', image: 'https://source.unsplash.com/random/800x600?residential,cleaning' },
+    { title: 'Commercial Cleaning', description: 'Comprehensive cleaning solutions for businesses.', image: 'https://source.unsplash.com/random/800x600?commercial,cleaning' },
+    { title: 'Specialty Cleaning', description: 'Specialized cleaning for unique environments.', image: 'https://source.unsplash.com/random/800x600?specialty,cleaning' },
+  ],
+};
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<BaseLayout class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8 pt-20">
+        <h1 class="text-4xl font-bold text-center mb-12 pt-20">Our Services</h1>
+
+        {Object.entries(services).map(([category, categoryServices]) => (
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold mb-6">{category}</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {categoryServices.map((service) => (
+                        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                            <img src={service.image} alt={service.title} class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+                                <p class="text-gray-600 mb-4">{service.description}</p>
+                                <a href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`} class="text-blue-500 hover:text-blue-700 font-medium">Learn More &rarr;</a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        ))}
+    </div>
+</BaseLayout>
+</html>
