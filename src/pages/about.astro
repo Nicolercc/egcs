@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/baselayout.astro";
+---
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Our Services</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+    <BaseLayout title="About Us">
+        <div class="container mx-auto px-4 py-8 pt-20">
+            <h1 class="text-4xl font-bold text-center mb-12 text-gray-800">About Us</h1>
+            
+            <!-- Introduction -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-700">Welcome to [Business Name]</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    At [Business Name], we're dedicated to streamlining your projects and enhancing your business operations. As a boutique project management firm, we offer personalized solutions tailored to your unique needs. Our mission is to empower businesses through expert project management, asbestos management, and cleaning services, all delivered with a personal touch and unwavering commitment to excellence.
+                </p>
+            </section>
+            
+            <!-- Founder's Background -->
+            <section class="mb-12 bg-gray-100 p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-700">Meet Our Founder</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    [Founder's Name], the driving force behind [Business Name], brings over [X] years of experience in project management and business operations. With a background in [relevant fields], [Founder's Name] has successfully led diverse projects across multiple industries. Their hands-on approach and deep industry knowledge ensure that every client receives top-tier expertise and personalized attention, making complex projects manageable and successful.
+                </p>
+            </section>
+            
+            <!-- Services Offered -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-700">Our Services</h2>
+                <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+                    <li><strong>Project Management:</strong> From inception to completion, we guide your projects to success, ensuring they're on time, within budget, and meet all objectives.</li>
+                    <li><strong>Asbestos Management:</strong> We provide comprehensive asbestos management services, prioritizing safety and compliance in every step of the process.</li>
+                    <li><strong>Cleaning Services:</strong> Our professional cleaning services maintain your workspace to the highest standards, creating a healthy and productive environment.</li>
+                </ul>
+                <p class="mt-4 text-gray-600">Each service is tailored to meet the unique needs of our clients, ensuring optimal results and satisfaction.</p>
+            </section>
+            
+            <!-- Purpose -->
+            <section class="mb-12 bg-blue-50 p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-700">Our Purpose</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    At [Business Name], we're driven by more than just project completion. Our purpose is to empower businesses by simplifying complex processes, allowing you to focus on what you do best. We believe that effective project management is key to business growth and success. By providing expert guidance and support, we aim to make a lasting impact on our clients' operations, fostering efficiency, innovation, and sustainable growth.
+                </p>
+            </section>
+            
+            <!-- Corporate Responsibility -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-700">Our Commitment to Responsibility</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    We're committed to conducting our business with the highest ethical standards and a strong sense of responsibility. This includes:
+                </p>
+                <ul class="list-disc list-inside text-gray-600 leading-relaxed mt-4">
+                    <li><strong>Sustainability:</strong> Implementing eco-friendly practices in our operations and recommending sustainable solutions to our clients.</li>
+                    <li><strong>Community Engagement:</strong> Actively participating in local community initiatives and supporting charitable causes.</li>
+                    <li><strong>Ethical Practices:</strong> Maintaining transparency in our dealings and adhering to the highest professional standards in project management.</li>
+                </ul>
+            </section>
+            
+            <!-- Call to Action -->
+            <section class="text-center">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-700">Ready to Elevate Your Projects?</h2>
+                <p class="text-gray-600 mb-6">Let's discuss how we can bring efficiency and success to your next project.</p>
+                <a href="/contact" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Contact Us for a Consultation
+                </a>
+            </section>
+        </div>
+    </BaseLayout>
+    </html>
