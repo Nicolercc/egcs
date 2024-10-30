@@ -26,13 +26,56 @@ const services = [
 			<div class="absolute inset-0 bg-black opacity-50"></div>
 			<div class="absolute inset-0 bg-cover bg-center w-100 " style="background-image: url('https://media.istockphoto.com/id/1917054502/photo/labourers-planning-on-site.jpg?s=612x612&w=is&k=20&c=4TadokSYurPDwexE96mdkK0MkoiOMNiMNRK4ehJcxfE=');"></div>
 			<div class="relative z-10 max-w-3xl mx-auto px-4">
-				<h1 class="text-5xl font-bold mb-4">Welcome to Our Services</h1>
+				<h1 class="text-5xl font-bold mb-4">Welcome to ECGS</h1>
 				<p class="text-xl mb-8">We provide expert solutions for your needs.</p>
 			</div>
 		</section>
 
+		 <!-- Informative Text Section -->
+		 <section class="bg-white pt-16">
+			<!-- <div class="container mx-auto px-4 max-w-4xl text-center">
+				<h2 class="text-3xl font-bold mb-6 text-gray-800">Your Trusted Environmental Partner</h2>
+				<p class="text-xl text-gray-600 leading-relaxed">
+					[Your Business Name] is a technology-driven environmental services provider, offering a wide range of solutions throughout your asset's lifecycle. We're your trusted partner, helping you navigate complex regulations to save time, reduce costs, and maximize resources.
+				</p>
+			</div> -->
+		</section>
+		<div class="ctr py-16 px-8 md:px-16 lg:px-32">
+			<div class="flex flex-col md:flex-row items-stretch">
+				<!-- Text content on the left -->
+				<div class="w-full md:w-1/2 lg:w-2/3 max-w-2xl">
+					<h2 class="text-4xl font-bold mb-6">ECGS is Family Owned &amp; Operated</h2>
+					<p class="text-lg text-gray-700 mb-6">We pride ourselves on customer service. Whatever your project requires, ECGS is here to assist.</p>
+					<ul class="list-disc text-xl font-semibold list-inside mb-8 space-y-4 text-center">
+						<li>Residential Properties</li>
+						<li>Commercial Properties</li>
+						<li>Municipal Buildings</li>
+						<li>Industrial Structures</li>
+					</ul>
+					<a class=" inline-block bg-yellow-500  hover:bg-yellow-600 text-white px-8 py-4 rounded-lg transition duration-300" href="#">Frequently Asked Questions</a>
+				</div>
+		
+				<!-- Images on the right -->
+				<div class="w-full md:w-1/2 lg:w-1/2 hidden md:block">
+					<div class="h-full grid grid-cols-1 md:grid-cols-3 gap-4 wp-gallery">
+						<a href="https://unsplash.com/photos/W9OKrxBqiZA" title="Construction Site" rel="gallery">
+							<img decoding="async" src="https://images.unsplash.com/photo-1600573471514-307fd66993df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDh8fGNvbnN0cnVjdGlvbnxlbnwwfHx8fDE2OTc0NjM1NjM&ixlib=rb-1.2.1&q=80&w=200" alt="Construction Site" class="w-full h-full object-cover rounded-lg shadow-md">
+						</a>
+						<a href="https://unsplash.com/photos/2zGTh-SU3XI" title="Building Plans" rel="gallery">
+							<img decoding="async" src="https://images.unsplash.com/photo-1610972674791-804f1d2e1cf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDI0fHxjb25zdHJ1Y3Rpb258ZW58MHx8fHwxNjk3NDYzNTYz&ixlib=rb-1.2.1&q=80&w=200" alt="Building Plans" class="w-full h-full object-cover rounded-lg shadow-md">
+						</a>
+						<a href="https://unsplash.com/photos/_dO_aSIsvno" title="Industrial Building" rel="gallery">
+							<img decoding="async" src="https://images.unsplash.com/photo-1600181950611-64c9a04d5a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDI4fHxjb25zdHJ1Y3Rpb258ZW58MHx8fHwxNjk3NDYzNTYz&ixlib=rb-1.2.1&q=80&w=200" alt="Industrial Building" class="w-full h-full object-cover rounded-lg shadow-md">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		
 		<!-- Service Overview Section -->
-		<section class="py-16 px-4">
+		<section class="p-16 px-4">
 			<div class="max-w-6xl mx-auto">
 				<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Services</h2>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -47,21 +90,6 @@ const services = [
 			</div>
 		</section>
 
-		<!-- Related Projects Section -->
-		<!-- <section class="py-16 px-4 bg-gray-50">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Explore Our Service Categories</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-					{services.map((service) => (
-						<div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition duration-300">
-							<h3 class="text-2xl font-semibold mb-4 text-blue-600">{service.title}</h3>
-							<p class="text-gray-600 mb-6">{service.description}</p>
-							<RelatedProjects category={service.category} />
-							<a href={`/services/${service.category.toLowerCase().replace(' ', '-')}`} class="mt-4 inline-block text-blue-500 hover:text-blue-700 font-medium">View All Services &rarr;</a>
-						</div>
-					))}
-				</div>
-			</div>
-		</section> -->
+		
 	</BaseLayout>
 </html>

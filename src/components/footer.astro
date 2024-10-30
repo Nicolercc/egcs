@@ -2,15 +2,15 @@
 const currentYear = new Date().getFullYear();
 
 const services = [
-    { name: "Project Management", url: "/services/project-management" },
-    { name: "Asbestos Management", url: "/services/asbestos-management" },
-    { name: "Cleaning Services", url: "/services/cleaning" },
+    { name: "Project Management", nameEs: "Gestión de Proyectos", url: "/services/project-management" },
+    { name: "Asbestos Management", nameEs: "Gestión de Asbesto", url: "/services/asbestos-management" },
+    { name: "Cleaning Services", nameEs: "Servicios de Limpieza", url: "/services/cleaning" },
 ];
 
 const companyLinks = [
-    { name: "About Us", url: "/about" },
-    { name: "Contact", url: "/contact" },
-    { name: "Get a Quote", url: "/quote" },
+    { name: "About Us", nameEs: "Sobre Nosotros", url: "/about" },
+    { name: "Contact", nameEs: "Contacto", url: "/contact" },
+    { name: "Get a Quote", nameEs: "Obtener Presupuesto", url: "/quote" },
 ];
 
 const socialLinks = [
@@ -25,26 +25,40 @@ const socialLinks = [
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="mb-8 md:mb-0">
                 <h3 class="text-xl font-bold mb-4">Company Name</h3>
-                <p class="text-gray-400">Providing expert project management and services to empower your business.</p>
+                <p class="text-gray-400 lang-en">Providing expert project management and services to empower your business.</p>
+                <p class="text-gray-400 lang-es hidden">Brindamos gestión de proyectos y servicios expertos para potenciar su negocio.</p>
             </div>
             <div>
-                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <h4 class="text-lg font-semibold mb-4 lang-en">Services</h4>
+                <h4 class="text-lg font-semibold mb-4 lang-es hidden">Servicios</h4>
                 <ul class="space-y-2">
                     {services.map(service => (
-                        <li><a href={service.url} class="text-gray-400 hover:text-white transition-colors">{service.name}</a></li>
+                        <li>
+                            <a href={service.url} class="text-gray-400 hover:text-white transition-colors">
+                                <span class="lang-en">{service.name}</span>
+                                <span class="lang-es hidden">{service.nameEs}</span>
+                            </a>
+                        </li>
                     ))}
                 </ul>
             </div>
             <div>
-                <h4 class="text-lg font-semibold mb-4">Company</h4>
+                <h4 class="text-lg font-semibold mb-4 lang-en">Company</h4>
+                <h4 class="text-lg font-semibold mb-4 lang-es hidden">Empresa</h4>
                 <ul class="space-y-2">
                     {companyLinks.map(link => (
-                        <li><a href={link.url} class="text-gray-400 hover:text-white transition-colors">{link.name}</a></li>
+                        <li>
+                            <a href={link.url} class="text-gray-400 hover:text-white transition-colors">
+                                <span class="lang-en">{link.name}</span>
+                                <span class="lang-es hidden">{link.nameEs}</span>
+                            </a>
+                        </li>
                     ))}
                 </ul>
             </div>
             <div>
-                <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                <h4 class="text-lg font-semibold mb-4 lang-en">Connect With Us</h4>
+                <h4 class="text-lg font-semibold mb-4 lang-es hidden">Conéctate con Nosotros</h4>
                 <div class="flex space-x-4">
                     {socialLinks.map(link => (
                         <a href={link.url} class="text-gray-400 hover:text-white transition-colors" aria-label={link.name}>
@@ -54,9 +68,23 @@ const socialLinks = [
                 </div>
             </div>
         </div>
-        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; {currentYear} Company Name. All rights reserved.</p>
-        </div>
+        <!-- <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; {currentYear} Company Name. <span class="lang-en">All rights reserved.</span><span class="lang-es hidden">Todos los derechos reservados.</span></p>
+            <button id="langToggle" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                <span class="lang-en">Español</span>
+                <span class="lang-es hidden">English</span>
+            </button>
+        </div> -->
     </div>
 </footer>
 
+<!-- <script client:load>
+    const langToggle = document.getElementById('langToggle');
+    const enElements = document.querySelectorAll('.lang-en');
+    const esElements = document.querySelectorAll('.lang-es');
+
+    langToggle.addEventListener('click', () => {
+        enElements.forEach(el => el.classList.toggle('hidden'));
+        esElements.forEach(el => el.classList.toggle('hidden'));
+    });
+</script> -->
