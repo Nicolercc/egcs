@@ -5,12 +5,12 @@ import BaseLayout from '../layouts/baselayout.astro'
 import ContactSection from '../components/ContactSection.astro';
 
 const services = [
-  { title: 'Project Management', description: 'Efficient project planning and execution.', category: 'Project Management' },
-  { title: 'Asbestos Management', description: 'Safe handling and removal of asbestos materials.', category: 'Asbestos Management' },
-  { title: 'Cleaning Services', description: 'Professional cleaning for various environments.', category: 'Cleaning Services' },
-  { title: 'Mold Remediation', description: 'Comprehensive solutions to remove mold and prevent regrowth.', category: 'Environmental Safety' },
-  { title: 'Lead Abatement', description: 'Expert lead removal for healthier living spaces.', category: 'Environmental Safety' },
-  { title: 'Regular Cleaning', description: 'Routine house and business cleaning tailored to your needs.', category: 'Cleaning Services' },
+ 
+  { title: 'Asbestos Abatement' , img:'/src/assets/Asbestos-abatement.jpg'},
+  { title: 'Mold Remediation', img:'/src/assets/mold.jpg'  },
+  { title: 'Lead Abatement', img:'/src/assets/lead-paint-removal.jpg' },
+  { title: 'Cleaning Services', img:'/src/assets/cleaning.jpg' },
+ 
 ];
 
 ---
@@ -26,7 +26,7 @@ const services = [
 	</head>
 	<BaseLayout class="bg-gray-100">
 	
-		<!-- Hero Section --->
+	
 	
 		<section class="relative h-screen flex items-center justify-center text-center text-white">
 			<div  class="absolute inset-0 bg-black z-10" 
@@ -39,61 +39,62 @@ const services = [
 			</div>
 		</section>
 
-		 <!-- Informative Text Section -->
-		 <!-- <section class="bg-white ptin the Tristate area-16">
-			<div class="container mx-auto px-4 max-w-4xl text-center">
-				<h2 class="text-3xl font-bold mb-6 text-gray-800">Your Trusted Environmental Partner</h2>
-				<p class="text-xl text-gray-600 leading-relaxed">
-					[Your Business Name] is a technology-driven environmental services provider, offering a wide range of solutions throughout your asset's lifecycle. We're your trusted partner, helping you navigate complex regulations to save time, reduce costs, and maximize resources.
-				</p>
-			</div>
-		</section> -->
+		
 		<div class="ctr py-16 px-8 md:px-16 lg:px-32">
 			<div class="flex flex-col md:flex-row ">
 		
-				<div class="w-full md:w-1/2 lg:w-2/3 max-w-2xl">
-					<h2 class="text-4xl font-bold mb-6">EGCS is Family Owned &amp; Operated</h2>
-					<p class="text-lg text-gray-700 mb-6">We pride ourselves on customer service. Whatever your project requires, EGCS is here to assist.</p>
-					<ul class="list-disc text-xl font-semibold list-inside mb-8 space-y-4 text-center">
-						<li>Residential Properties</li>
-						<li>Commercial Properties</li>
-						<li>Municipal Buildings</li>
-						<li>Industrial Structures</li>
-					</ul>
-					<div class="text-center">
-						<a class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg transition duration-300" href="/about">About us</a>
+				<div class="w-full m">
+					<h2 class="text-4xl font-bold mb-6 text-center">EGCS is Family Owned &amp; Operated</h2>
+					
+					<p class="text-lg text-gray-700 mb-6">
+						We offer <b>immediate solutions</b>. We have specialized, certified, and highly experienced personnel to carry out the work. 
+						If you are concerned about whether your property, home, or workplace may be contaminated with <b>mold, lead, or asbestos</b>, 
+						or if you need a continuous <b>cleaning system</b>. We are here for you; <b>call us</b> and we can help you immediately. It doesn't matter if it's a small 
+						or large damage, because <b>our clients are important to us</b>.
+					</p>
+					<div class="text-center mt-4">
+						<a class=" inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg transition duration-300" href="/quote">Call Us Today</a>
 					</div>
+					
 				</div>
-				<div class="w-full md:w-1/2 lg:w-1/2 hidden md:block">
-					<div class="h-full grid grid-cols-1 md:grid-cols-3 gap-4 wp-gallery">
-						<div >
-							<img decoding="async" src="/src/assets/asbestos.avif" alt="Construction Site" class="w-full h-full object-cover rounded-lg shadow-md">
-						</div>
-						<div>
-							<img decoding="async" src="/src/assets/cleaning.avif" alt="Building Plans" class="w-full h-full object-cover rounded-lg shadow-md">
-						</div>
-						<div>
-							<img decoding="async" src="/src/assets/Construction.avif" alt="Industrial Building" class="w-full h-full object-cover rounded-lg shadow-md">
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		
 	
-		<section class="pb-16 px-4 pt-10">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Services</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					{services.map((service) => (
-						<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-							<h3 class="text-xl font-semibold mb-3 text-yellow-600">{service.title}</h3>
-							<p class="text-gray-600 mb-4">{service.description}</p>
-							<a href={`/services/${service.category.toLowerCase().replace(' ', '-')}`} class="text-yellow-500 hover:text-yellow-700 font-medium">Learn More &rarr;</a>
-						</div>
-					))}
+			<section class="pb-16 px-4 pt-10">
+				<div class="max-w-6xl mx-auto">
+				  <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
+					Services Provided
+				  </h2>
+				
+				  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12">
+					{
+					  services.map((service) => (
+						<a 
+						  href="/services" 
+						  class="flex flex-col items-center group no-underline"
+						>
+						  {/* Image Container */}
+						  <div class="relative w-40 h-40 rounded-full overflow-hidden shadow-lg">
+							<img 
+							  src={service.img} 
+							  alt={service.title} 
+							  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+							/>
+							<div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+						  </div>
+						  {/* Title */}
+						  <div class="mt-4 text-center text-gray-800 font-bold text-sm sm:text-base group-hover:underline">
+							{service.title.toUpperCase()}
+						  </div>
+						</a>
+					  ))
+					}
+				  </div>
+				  
 				</div>
-			</div>
-		</section>
+			  </section>
+			  
 
 		<ContactSection
 			
