@@ -6,10 +6,10 @@ import ContactSection from '../components/ContactSection.astro';
 
 const services = [
  
-  { title: 'Asbestos Abatement' , img:'/src/assets/Asbestos-abatement.jpg'},
-  { title: 'Mold Remediation', img:'/src/assets/mold.jpg'  },
-  { title: 'Lead Abatement', img:'/src/assets/lead-paint-removal.jpg' },
-  { title: 'Cleaning Services', img:'/src/assets/cleaning.jpg' },
+{ title: 'Cleaning Services', img:'/src/assets/cleaning.jpg' , link:'/services/cleaning-services'},
+{ title: 'Asbestos Abatement' , img:'/src/assets/Asbestos-abatement.jpg', link:'/services/asbestos-management'},
+{ title: 'Mold Remediation', img:'/src/assets/mold.jpg', link:'/services/asbestos-management'  },
+{ title: 'Lead Abatement', img:'/src/assets/lead-paint-removal.jpg', link:'/services/asbestos-management' },
  
 ];
 
@@ -29,13 +29,16 @@ const services = [
 	
 	
 		<section class="relative h-screen flex items-center justify-center text-center text-white">
-			<div  class="absolute inset-0 bg-black z-10" 
-			style="opacity: 0.5;"></div>
+			<div class="absolute inset-0 bg-black z-10" style="opacity: 0.5;"></div>
 			<div class="absolute inset-0 bg-cover bg-center w-100" style="background-image: url('/src/assets/landing.jpg');"></div>
 			<div class="relative z-10 max-w-3xl mx-auto px-4">
 				<h2 class="text-4xl font-bold mb-4 text-gray-300">Welcome to </h2>
-				<h1 class="text-5xl font-bold mb-4  text-gray-200">Elite Global Cleaning Services</h1>
+				<h1 class="text-5xl font-bold mb-4 text-gray-200">Elite Global Cleaning Services</h1>
 				<p class="text-xl mb-8 text-gray-300">Complete environmental solutions—from asbestos abatement to professional cleaning — done right for a safer, healthier environment in the Tristate area.</p>
+				
+				<div class="text-center mt-4">
+					<a class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg transition duration-300" href="/quote">Call Us Today</a>
+				</div>
 			</div>
 		</section>
 
@@ -52,9 +55,7 @@ const services = [
 						or if you need a continuous <b>cleaning system</b>. We are here for you; <b>call us</b> and we can help you immediately. It doesn't matter if it's a small 
 						or large damage, because <b>our clients are important to us</b>.
 					</p>
-					<div class="text-center mt-4">
-						<a class=" inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg transition duration-300" href="/quote">Call Us Today</a>
-					</div>
+					
 					
 				</div>
 				
@@ -71,7 +72,7 @@ const services = [
 					{
 					  services.map((service) => (
 						<a 
-						  href="/services" 
+						  href={service.link}
 						  class="flex flex-col items-center group no-underline"
 						>
 						  {/* Image Container */}
@@ -95,12 +96,14 @@ const services = [
 				</div>
 			  </section>
 			  
+		<section class="bg-gray-50 p-0 m-0">
 
-		<ContactSection
-			
+			<ContactSection
 			title="Contact Our Team" 
 			email="support@egcs.com" 
 		/>
+		</section>
+					
 
 	</BaseLayout>
 </html>
