@@ -3,13 +3,20 @@ import Navbar from "../components/Navbar.astro";
 import RelatedProjects from "../components/relatedprojects.astro";
 import BaseLayout from '../layouts/baselayout.astro'
 import ContactSection from '../components/ContactSection.astro';
+import CleaningImg from '../assets/cleaning.jpg'
+import AsbestosImg from '../assets/Asbestos-abatement.jpg'
+import MoldImg from '../assets/mold.jpg'
+import LeadImg from '../assets/lead-paint-removal.jpg'
+import HeroImg from "../assets/landing.jpg"
+import { Image } from "astro:assets";
+
 
 const services = [
  
-{ title: 'Cleaning Services', img:'/src/assets/cleaning.jpg' , link:'/services/cleaning-services'},
-{ title: 'Asbestos Abatement' , img:'/src/assets/Asbestos-abatement.jpg', link:'/services/asbestos-management'},
-{ title: 'Mold Remediation', img:'/src/assets/mold.jpg', link:'/services/mold-remediation'  },
-{ title: 'Lead Abatement', img:'/src/assets/lead-paint-removal.jpg', link:'/services/lead-abatement' },
+{ title: 'Cleaning Services', img: CleaningImg, link:'/services/cleaning-services'},
+{ title: 'Asbestos Abatement' , img: AsbestosImg, link:'/services/asbestos-abatement'},
+{ title: 'Mold Remediation', img: MoldImg, link:'/services/mold-remediation'  },
+{ title: 'Lead Abatement', img: LeadImg, link:'/services/lead-abatement' },
  
 ];
 
@@ -30,7 +37,16 @@ const services = [
 	
 		<section class="relative h-screen flex items-center justify-center text-center text-white">
 			<div class="absolute inset-0 bg-black z-10" style="opacity: 0.5;"></div>
-			<div class="absolute inset-0 bg-cover bg-center w-100" style="background-image: url('/src/assets/landing.jpg');"></div>
+			
+			<!-- Updated image implementation -->
+			<div class="absolute inset-0 w-full h-full">
+				<Image 
+					src={HeroImg} 
+					alt="Landing Background" 
+					class="w-full h-full object-cover"
+				/>
+			</div>
+			
 			<div class="relative z-10 max-w-3xl mx-auto px-4">
 				<h2 class="text-4xl font-bold mb-4 text-gray-300">Welcome to </h2>
 				<h1 class="text-5xl font-bold mb-4 text-gray-200">Elite Global Cleaning Services</h1>
@@ -41,6 +57,7 @@ const services = [
 				</div>
 			</div>
 		</section>
+		
 
 		
 		<div class="ctr py-16 px-8 md:px-16 lg:px-32">
@@ -73,16 +90,16 @@ const services = [
 					  services.map((service) => (
 						<a 
 						  href={service.link}
-						  class="flex flex-col items-center group no-underline"
+						  class="flex flex-col items-center group no-underline "
 						>
 						  {/* Image Container */}
-						  <div class="relative w-40 h-40 rounded-full overflow-hidden shadow-lg">
-							<img 
+						  <div class="relative w-40 h-40 rounded-full overflow-hidden shadow-2xl">
+							<Image 
 							  src={service.img} 
 							  alt={service.title} 
-							  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+							  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 "
 							/>
-							<div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+							<div class="absolute  inset-0 bg-black bg-opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 						  </div>
 						  {/* Title */}
 						  <div class="mt-4 text-center text-gray-800 font-bold text-sm sm:text-base group-hover:underline">

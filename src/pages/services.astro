@@ -1,36 +1,43 @@
 ---
 import BaseLayout from '../layouts/baselayout.astro';
 import ContactSection from '../components/ContactSection.astro'
+import CleaningServicesImg from '../assets/cleaning.jpg'
+import AsbestosAbatementImg from '../assets/asbestos-abatement.jpg';
+import LeadAbatementImg from '../assets/lead-paint-removal.jpg';
+import MoldRemediationImg from '../assets/mold.jpg';
+import { Image } from 'astro:assets';
+
 const services = [
-    {
-      title: "Cleaning Services",
-      img: "/src/assets/cleaning.jpg",
-      description:
-        "Our thorough cleaning services are designed to meet the highest standards, whether for commercial or residential spaces.",
-        link:'/services/cleaning-services',
-    },
   {
-    title: "Asbestos Abatement",
-    img: "/src/assets/Asbestos-abatement.jpg",
+    title: "Cleaning Services",
+    img: CleaningServicesImg,
     description:
-      "Our trained professionals safely and effectively handle asbestos abatement, ensuring compliance with all regulations while minimizing disruption to your property.",
-    link:'/services/asbestos-management',
+      "Our thorough cleaning services are designed to meet the highest standards, whether for commercial or residential spaces.",
+    link: '/services/cleaning-services',
   },
   {
-      title: "Lead Abatement",
-      img: "/src/assets/lead-paint-removal.jpg",
-      description:
+    title: "Asbestos Abatement",
+    img: AsbestosAbatementImg,
+    description:
+      "Our trained professionals safely and effectively handle asbestos abatement, ensuring compliance with all regulations while minimizing disruption to your property.",
+    link: '/services/asbestos-abatement',
+  },
+  {
+    title: "Lead Abatement",
+    img: LeadAbatementImg,
+    description:
       "Our certified team provides comprehensive solutions for the removal of lead paint hazards, ensuring the safety of your property and its occupants.",
-      link:'/services/asbestos-management',
-    },
-    {
-      title: "Mold Remediation",
-      img: "/src/assets/mold.jpg",
-      description:
-        "We specialize in removing mold and preventing future growth, restoring your space to a healthy and safe environment.",
-        link:'/services/asbestos-management'
-    },
+    link: '/services/lead-abatement',
+  },
+  {
+    title: "Mold Remediation",
+    img: MoldRemediationImg,
+    description:
+      "We specialize in removing mold and preventing future growth, restoring your space to a healthy and safe environment.",
+    link: '/services/mold-remediation',
+  },
 ];
+
 
 const licenses = [
   "Asbestos Abatement Contractor License",
@@ -57,52 +64,28 @@ const contactInfo = {
 		<title>Our Business Services</title>
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 	</head>
-<BaseLayout>
+  <BaseLayout>
     <section class="bg-gray-100 py-16 ">
-        <div class="container mx-auto px-6">
-          <h1 class="text-4xl font-bold text-center text-gray-800 mb-12 mt-12">Our Services</h1>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service) => (
-              <a 
-                href={service.link} 
-                class="bg-white rounded-lg shadow-lg overflow-hidden no-underline hover:shadow-xl transition-shadow duration-300"
-              >
-                <div>
-                  <img src={service.img} alt={service.title} class="w-full h-48 object-cover" />
-                  <div class="p-6">
-                    <h2 class="text-xl font-semibold text-gray-800">{service.title}</h2>
-                    <p class="text-gray-600 mt-2">{service.description}</p>
-                  </div>
+      <div class="container mx-auto px-6">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-12 mt-12">Our Services</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {services.map((service) => (
+            <a 
+              href={service.link} 
+              class="bg-white rounded-lg shadow-lg overflow-hidden no-underline hover:shadow-xl transition-shadow duration-300"
+            >
+              <div>
+                <Image src={service.img} alt={service.title} class="w-full h-48 object-cover" />
+                <div class="p-6">
+                  <h2 class="text-xl font-semibold text-gray-800">{service.title}</h2>
+                  <p class="text-gray-600 mt-2">{service.description}</p>
                 </div>
-              </a>
-            ))}
-          </div>
+              </div>
+            </a>
+          ))}
         </div>
-      </section>
-      
-    
-      <section class="bg-white py-16">
-        <div class="container mx-auto px-6">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Licenses & Certifications</h2>
-          <div class="grid grid-cols-2 "> 
- <ul class="list-disc list-inside text-gray-700 space-y-2">
-    <li>Asbestos Abatement Contractor License</li>
-    <li>Lead Abatement Contractor License</li>
-    <li>Mold Remediation Contractor License</li>
-  </ul>
-  <ul class="list-disc list-inside text-gray-700 space-y-2">
-    <li>HAZWOPER Certification</li>
-    <li>OSHA Bloodborne Pathogen Certification</li>
-    <li>Healthcare Construction & Infection Control Certificate</li>
-  </ul>
-          </div>
-        </div>
-      </section>
-    
-      <section class="bg-gray-100 py-16">
-      
-          <ContactSection />
-        </div>
-      </section>
-</BaseLayout> 
+      </div>
+    </section>
+  </BaseLayout>
+  
 <html />
