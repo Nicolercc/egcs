@@ -1,52 +1,273 @@
 ---
-import BaseLayout from "../layouts/baselayout.astro";
-const services = {
-  'Project Management': [
-    { title: 'Task Management', description: 'Efficiently organize and track project tasks.', image: 'https://source.unsplash.com/random/800x600?task,management' },
-    { title: 'Resource Allocation', description: 'Optimize resource distribution for project success.', image: 'https://source.unsplash.com/random/800x600?resource,allocation' },
-    { title: 'Risk Assessment', description: 'Identify and mitigate potential project risks.', image: 'https://source.unsplash.com/random/800x600?risk,assessment' },
-  ],
-  'Asbestos Management': [
-    { title: 'Asbestos Inspection', description: 'Thorough asbestos inspections for safety compliance.', image: 'https://source.unsplash.com/random/800x600?asbestos,inspection' },
-    { title: 'Asbestos Removal', description: 'Safe and effective asbestos removal and remediation.', image: 'https://source.unsplash.com/random/800x600?asbestos,removal' },
-    { title: 'Compliance Management', description: 'Ensure adherence to asbestos regulations and standards.', image: 'https://source.unsplash.com/random/800x600?compliance,management' },
-  ],
-  'Cleaning Services': [
-    { title: 'Residential Cleaning', description: 'Professional cleaning services for homes.', image: 'https://source.unsplash.com/random/800x600?residential,cleaning' },
-    { title: 'Commercial Cleaning', description: 'Comprehensive cleaning solutions for businesses.', image: 'https://source.unsplash.com/random/800x600?commercial,cleaning' },
-    { title: 'Specialty Cleaning', description: 'Specialized cleaning for unique environments.', image: 'https://source.unsplash.com/random/800x600?specialty,cleaning' },
-  ],
+// Importing required components, assets, and services
+import BaseLayout from '../layouts/baselayout.astro';
+import ContactSection from '../components/ContactSection.astro';
+import CleaningServicesImg from '../assets/cleaning.jpg';
+import AsbestosAbatementImg from '../assets/asbestos-abatement.jpg';
+import LeadAbatementImg from '../assets/lead-paint-removal.jpg';
+import MoldRemediationImg from '../assets/mold.jpg';
+import { Image } from 'astro:assets';
+
+// Services data
+const services = [
+  {
+    title: "Cleaning Services",
+    img: CleaningServicesImg,
+    description:
+      "Our thorough cleaning services are designed to meet the highest standards, whether for commercial or residential spaces.",
+    link: '/services/cleaning-services',
+  },
+  {
+    title: "Asbestos Abatement",
+    img: AsbestosAbatementImg,
+    description:
+      "Our trained professionals safely and effectively handle asbestos abatement, ensuring compliance with all regulations while minimizing disruption to your property.",
+    link: '/services/asbestos-abatement',
+  },
+  {
+    title: "Lead Abatement",
+    img: LeadAbatementImg,
+    description:
+      "Our certified team provides comprehensive solutions for the removal of lead paint hazards, ensuring the safety of your property and its occupants.",
+    link: '/services/lead-abatement',
+  },
+  {
+    title: "Mold Remediation",
+    img: MoldRemediationImg,
+    description:
+      "We specialize in removing mold and preventing future growth, restoring your space to a healthy and safe environment.",
+    link: '/services/mold-remediation',
+  },
+];
+
+// Licenses data
+const licenses = [
+  "Asbestos Abatement Contractor License",
+  "Lead Abatement Contractor License",
+  "Mold Remediation Contractor License",
+  "HAZWOPER Certification",
+  "OSHA Bloodborne Pathogen Certification",
+  "Healthcare Construction & Infection Control Certificate",
+];
+
+// Contact information
+const contactInfo = {
+  name: "Elite Global Cleaning Services",
+  address: "New York, New York",
+  phone: "(929) 354-4114",
+  email: "eliteglobalcs1.llc@gmail.com",
 };
 ---
-
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<BaseLayout class="bg-gray-100">
-    <div class="container mx-auto px-4 py-8 pt-20">
-        <h1 class="text-4xl font-bold text-center mb-12 pt-20">Our Services</h1>
-
-        {Object.entries(services).map(([category, categoryServices]) => (
-            <section class="mb-16">
-                <h2 class="text-2xl font-bold mb-6">{category}</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {categoryServices.map((service) => (
-                        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
-                            <img src={service.image} alt={service.title} class="w-full h-48 object-cover" />
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
-                                <p class="text-gray-600 mb-4">{service.description}</p>
-                                <a href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`} class="text-blue-500 hover:text-blue-700 font-medium">Learn More &rarr;</a>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-        ))}
-    </div>
-</BaseLayout>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Our Business Services</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <BaseLayout>
+    <!-- Services Section -->
+    <section class="bg-gray-100 py-16">
+      <div class="container mx-auto px-6">
+        <!-- Header -->
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-4">
+          Our Services
+        </h1>
+        <p class="text-center text-gray-600 mb-12">
+          Professional cleaning and abatement services for commercial and residential properties
+        </p>
+        <hr class="border-t-2 border-gray-300 mb-12" />
+  
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Cleaning Services Card -->
+          <div class="bg-white border rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-4">
+              <!-- Icon -->
+              <div
+                class="bg-orange-100 rounded-full p-2 flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-orange-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m4-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h2 class="ml-3 text-2xl font-bold text-gray-800">Cleaning Services</h2>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Professional cleaning solutions for all spaces
+            </p>
+            <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
+              <p class="text-gray-400">Image Placeholder</p>
+            </div>
+            <p class="text-gray-600 mt-4">
+              Our thorough cleaning services are designed to meet the highest standards.
+            </p>
+          </div>
+          <div class="bg-white border rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-4">
+              <!-- Icon -->
+              <div class="bg-orange-100 rounded-full p-2 flex items-center justify-center">
+                <svg
+                  class="w-6 h-6 text-orange-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m4-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h2 class="ml-3 text-2xl font-bold text-gray-800">Cleaning Services</h2>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Professional cleaning solutions for all spaces
+            </p>
+            <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
+              <!-- Image with responsive fit -->
+              <Image 
+                src={CleaningServicesImg} 
+                alt="Cleaning Services" 
+                class="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+            <p class="text-gray-600 mt-4">
+              Our thorough cleaning services are designed to meet the highest standards.
+            </p>
+          </div>
+          
+          <!-- Asbestos Abatement Card -->
+          <div class="bg-white border rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-4">
+              <!-- Icon -->
+              <div
+                class="bg-blue-100 rounded-full p-2 flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-blue-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h2 class="ml-3 text-2xl font-bold text-gray-800">Asbestos Abatement</h2>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Safe and compliant asbestos removal
+            </p>
+            <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
+              <p class="text-gray-400">Image Placeholder</p>
+            </div>
+            <p class="text-gray-600 mt-4">
+              Our trained professionals safely and effectively handle asbestos removal.
+            </p>
+          </div>
+  
+          <!-- Lead Abatement Card -->
+          <div class="bg-white border rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-4">
+              <!-- Icon -->
+              <div
+                class="bg-red-100 rounded-full p-2 flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-red-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 2a10 10 0 00-4 19.396V22h8v-1.604A10 10 0 0012 2z"
+                  />
+                </svg>
+              </div>
+              <h2 class="ml-3 text-2xl font-bold text-gray-800">Lead Abatement</h2>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Comprehensive lead paint removal solutions
+            </p>
+            <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
+              <p class="text-gray-400">Image Placeholder</p>
+            </div>
+            <p class="text-gray-600 mt-4">
+              Certified solutions to ensure safety and compliance with regulations.
+            </p>
+          </div>
+  
+          <!-- Mold Remediation Card -->
+          <div class="bg-white border rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-4">
+              <!-- Icon -->
+              <div
+                class="bg-green-100 rounded-full p-2 flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-green-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 22s-8-4-8-10a8 8 0 1116 0c0 6-8 10-8 10z"
+                  />
+                </svg>
+              </div>
+              <h2 class="ml-3 text-2xl font-bold text-gray-800">Mold Remediation</h2>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Safe and effective mold removal
+            </p>
+            <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
+              <p class="text-gray-400">Image Placeholder</p>
+            </div>
+            <p class="text-gray-600 mt-4">
+              Prevent and remove mold growth to restore a healthy environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </BaseLayout>
+  
 </html>
