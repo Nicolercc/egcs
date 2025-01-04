@@ -60,7 +60,7 @@ const {
 
         <!-- Contact Form -->
         <div class="pb-8">
-            <form class="w-full max-w-2xl mx-auto">
+            <form  action="/.netlify/functions/sendEmail" class="w-full max-w-2xl mx-auto" method="POST">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-2"> Full Name</label>
@@ -106,6 +106,7 @@ const {
                         Send Message
                     </button>
                 </div>
+                <div id="form-feedback" class="hidden text-center mt-4 text-sm text-red-500"></div>
             </form>
         </div>
     </div>
