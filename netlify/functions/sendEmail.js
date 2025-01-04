@@ -14,7 +14,7 @@ export async function handler(event) {
 	}
 	//schema for validating data
 	try {
-		const schema = zobject({
+		const schema = z.object({
 			name: z.string().min(1, "Name is required"),
 			email: z.string().email("Invalid email ddress"),
 			message: z.string().min(1, "Message is required"),
