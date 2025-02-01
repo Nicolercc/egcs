@@ -12,36 +12,36 @@ const basePath = Astro.url.pathname.includes('/services') ? '/services' : ''
 
 
 // Services data
-const services = [
-  {
-    title: "Cleaning Services",
-    img: CleaningServicesImg,
-    description:
-      "Our thorough cleaning services are designed to meet the highest standards, whether for commercial or residential spaces.",
-    link: '/cleaning-services',
-  },
-  {
-    title: "Asbestos Abatement",
-    img: AsbestosAbatementImg,
-    description:
-      "Our trained professionals safely and effectively handle asbestos abatement, ensuring compliance with all regulations while minimizing disruption to your property.",
-    link: '/asbestos-abatement',
-  },
-  {
-    title: "Lead Abatement",
-    img: LeadAbatementImg,
-    description:
-      "Our certified team provides comprehensive solutions for the removal of lead paint hazards, ensuring the safety of your property and its occupants.",
-    link: '/lead-abatement',
-  },
-  {
-    title: "Mold Remediation",
-    img: MoldRemediationImg,
-    description:
-      "We specialize in removing mold and preventing future growth, restoring your space to a healthy and safe environment.",
-    link: '/mold-remediation',
-  },
-];
+// const services = [
+//   {
+//     title: "Cleaning Services",
+//     img: CleaningServicesImg,
+//     description:
+//       "Our thorough cleaning services are designed to meet the highest standards, whether for commercial or residential spaces.",
+//     link: '/cleaning-services',
+//   },
+//   {
+//     title: "Asbestos Abatement",
+//     img: AsbestosAbatementImg,
+//     description:
+//       "Our trained professionals safely and effectively handle asbestos abatement, ensuring compliance with all regulations while minimizing disruption to your property.",
+//     link: '/asbestos-abatement',
+//   },
+//   {
+//     title: "Lead Abatement",
+//     img: LeadAbatementImg,
+//     description:
+//       "Our certified team provides comprehensive solutions for the removal of lead paint hazards, ensuring the safety of your property and its occupants.",
+//     link: '/lead-abatement',
+//   },
+//   {
+//     title: "Mold Remediation",
+//     img: MoldRemediationImg,
+//     description:
+//       "We specialize in removing mold and preventing future growth, restoring your space to a healthy and safe environment.",
+//     link: '/mold-remediation',
+//   },
+// ];
 
 // Licenses data
 const licenses = [
@@ -202,7 +202,7 @@ const contactInfo = {
 
             <!-- Mold Remediation Card -->
             <div class="bg-white border rounded-lg p-6 shadow-sm transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:border-green-500">
-              <a href={`${basePath}/mold-remediation`}>
+              <a href={`${basePath}/asbestos-abatement`}>
                 <div class="flex items-center mb-4">
                   <!-- Icon -->
                   <div class="bg-green-100 rounded-full p-2 flex items-center justify-center">
