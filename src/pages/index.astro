@@ -11,12 +11,14 @@ import HeroImg from "../assets/landing.jpg"
 import { Image } from "astro:assets";
 
 
+const basePath = Astro.url.pathname.includes('/services') ? '/services' : ''
+
 const services = [
  
-{ title: 'Cleaning Services', img: CleaningImg, link:'/services/cleaning-services'},
-{ title: 'Asbestos Abatement' , img: AsbestosImg, link:'/services/asbestos-abatement'},
-{ title: 'Mold Remediation', img: MoldImg, link:'/services/mold-remediation.astro'  },
-{ title: 'Lead Abatement', img: LeadImg, link:'/services/lead-abatement' },
+{ title: 'Cleaning Services', img: CleaningImg, link:`${basePath}/cleaning-services`},
+{ title: 'Asbestos Abatement' , img: AsbestosImg, link:`${basePath}/asbestos-abatement`},
+{ title: 'Mold Remediation', img: MoldImg, link:`${basePath}/mold-remediation.astro`  },
+{ title: 'Lead Abatement', img: LeadImg, link:`${basePath}/lead-abatement` },
  
 ];
 
