@@ -18,13 +18,11 @@ const {
 
 <section class="bg-white py-16">
     <div class="max-w-4xl mx-auto px-4">
-      
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
             <p class="text-gray-700">{subtitle}</p>
         </div>
 
-        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
             <div class="p-4">
                 <div class="text-yellow-500 mb-3">
@@ -58,7 +56,7 @@ const {
             </div>
         </div>
 
-        <!-- Uncomment and update the Contact Form -->
+        <!-- Contact Form -->
         <div class="pb-8">
             <form class="w-full max-w-2xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -116,49 +114,53 @@ const {
   const form = document.querySelector('form');
   const feedback = document.getElementById('form-feedback');
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // Show loading state
-    const button = form.querySelector('button');
-    const originalText = button.textContent;
-    button.textContent = 'Sending...';
-    button.disabled = true;
-    
-    try {
-      const formData = new FormData(form);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        message: formData.get('message')
-      };
+  if (form && feedback) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Show loading state
+      const button = form.querySelector('button');
+      if (!button) return;
 
-      const response = await fetch('/.netlify/functions/sendEmail', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
+      const originalText = button.textContent;
+      button.textContent = 'Sending...';
+      button.disabled = true;
+      
+      try {
+        const formData = new FormData(form);
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message')
+        };
+
+        const response = await fetch('/.netlify/functions/sendEmail', {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          feedback.textContent = 'Message sent successfully!';
+          feedback.classList.remove('text-red-500', 'hidden');
+          feedback.classList.add('text-green-500');
+          form.reset();
+        } else {
+          throw new Error(result.error || 'Failed to send message');
         }
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        feedback.textContent = 'Message sent successfully!';
-        feedback.classList.remove('text-red-500', 'hidden');
-        feedback.classList.add('text-green-500');
-        form.reset();
-      } else {
-        throw new Error(result.error || 'Failed to send message');
+      } catch (error) {
+        console.error('Error:', error);
+        feedback.textContent = 'Failed to send message. Please try again.';
+        feedback.classList.remove('text-green-500', 'hidden');
+        feedback.classList.add('text-red-500');
+      } finally {
+        button.textContent = originalText;
+        button.disabled = false;
       }
-    } catch (error) {
-      console.error('Error:', error);
-      feedback.textContent = 'Failed to send message. Please try again.';
-      feedback.classList.remove('text-green-500', 'hidden');
-      feedback.classList.add('text-red-500');
-    } finally {
-      button.textContent = originalText;
-      button.disabled = false;
-    }
-  });
+    });
+  }
 </script>
