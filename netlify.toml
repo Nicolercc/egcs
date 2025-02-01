@@ -7,3 +7,6 @@
   from = "/old-page"
   to = "/new-page"
   status = 301
+
+[functions]
+  directory = "netlify/functions"
