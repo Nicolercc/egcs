@@ -8,6 +8,10 @@ import BaseLayout from '../../layouts/baselayout.astro';
 import BaseLayout from '../../layouts/baselayout.astro';
 ---
 
+---
+import BaseLayout from '../../layouts/baselayout.astro';
+---
+
 <BaseLayout>
   <!-- Hero Section -->
   <section class="relative bg-gray-900 text-white">
@@ -19,7 +23,7 @@ import BaseLayout from '../../layouts/baselayout.astro';
         <span class="inline-block bg-orange-500 text-white px-4 py-2 rounded-full mb-4">Professional Service</span>
         <h1 class="text-4xl md:text-5xl font-bold mb-6">Lead Abatement Services</h1>
         <p class="text-lg md:text-xl text-gray-200 mb-8">
-          Professional lead removal and containment services to ensure your property is safe and compliant with all regulations.
+          Lead abatement is the process of safely reducing lead-based paint hazards in residential and commercial properties. Exposure to lead can cause serious health issues, particularly for young children and pregnant women. Our team is trained and certified to effectively identify and eliminate lead hazards, ensuring a safer environment for you and your family.
         </p>
         <div class="flex flex-wrap gap-4">
           <!-- Primary Button -->
@@ -47,181 +51,202 @@ import BaseLayout from '../../layouts/baselayout.astro';
         <section>
           <h2 class="text-3xl font-bold mb-6">Our Lead Abatement Process</h2>
           <p class="text-gray-600 mb-8">
-            Lead abatement is the process of removing lead from a building or other facility. Our comprehensive approach ensures safe and thorough removal while protecting occupants and workers.
+            Lead abatement is the process of safely reducing lead-based paint hazards in residential and commercial properties. Our comprehensive approach ensures safe and thorough removal while protecting occupants and workers.
           </p>
 
           <!-- Tabs -->
           <div class="tabs">
             <div class="grid grid-cols-2 lg:grid-cols-5 gap-2 mb-6">
-              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="encapsulation">Encapsulation</button>
-              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="enclosure">Enclosure</button>
-              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="removal">Paint Removal</button>
-              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="replacement">Replacement</button>
-              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="interim">Interim Control</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="inspection">Inspection</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="containment">Containment</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="removal">Removal</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="cleanup">Cleanup</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="inspection-final">Final Inspection</button>
             </div>
 
             <!-- Tab Content -->
 
-            <!-- Encapsulation -->
-            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="encapsulation">
+            <!-- Inspection -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="inspection">
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <h3 class="text-xl font-semibold mb-4">Encapsulation Process</h3>
+                  <h3 class="text-xl font-semibold mb-4">Inspection & Risk Assessment</h3>
                   <p class="text-gray-600 mb-4">
-                    Covering and sealing lead paint with a special coating. This is generally safer for workers than removing the paint and provides long-lasting protection.
+                    We conduct a thorough inspection to determine the presence of lead-based paint and assess the level of risk. Testing methods may include X-ray fluorescence (XRF), paint chip sampling, and dust wipe analysis.
                   </p>
                   <ul class="space-y-2">
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Cost-effective solution</span>
+                      <span>Accurate lead detection</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Minimal disruption to occupants</span>
+                      <span>Comprehensive risk assessment</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Long-lasting protection</span>
+                      <span>State-of-the-art testing methods</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <!-- Enclosure -->
-            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="enclosure">
+            <!-- Containment -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="containment">
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <h3 class="text-xl font-semibold mb-4">Enclosure Process</h3>
+                  <h3 class="text-xl font-semibold mb-4">Containment & Preparation</h3>
                   <p class="text-gray-600 mb-4">
-                    Constructing a sealed, airtight barrier around lead-containing materials to prevent exposure. This method is often used for walls, ceilings, and structural elements.
+                    We isolate the affected areas to prevent the spread of lead dust and debris. Protective barriers, plastic sheeting, and negative air pressure systems are used to contain contaminants.
                   </p>
                   <ul class="space-y-2">
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Provides immediate containment</span>
+                      <span>Prevents cross-contamination</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Reduces risk of lead exposure</span>
+                      <span>Ensures worker and occupant safety</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Requires ongoing monitoring</span>
+                      <span>Uses advanced containment systems</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <!-- Paint Removal -->
+            <!-- Removal -->
             <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="removal">
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <h3 class="text-xl font-semibold mb-4">Paint Removal Process</h3>
+                  <h3 class="text-xl font-semibold mb-4">Lead Removal & Treatment</h3>
                   <p class="text-gray-600 mb-4">
-                    Stripping lead-based paint using chemical solvents or mechanical methods when encapsulation isn’t viable. Requires specialized handling to prevent lead exposure.
+                    We utilize industry-approved methods such as encapsulation, enclosure, paint removal, and component replacement to safely eliminate lead hazards.
                   </p>
                   <ul class="space-y-2">
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Effective for refinishing surfaces</span>
+                      <span>Safe and effective methods</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Requires specialized safety measures</span>
+                      <span>Permanent solutions</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Generates hazardous waste</span>
+                      <span>Complies with EPA regulations</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <!-- Replacement -->
-            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="replacement">
+            <!-- Cleanup -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="cleanup">
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <h3 class="text-xl font-semibold mb-4">Replacement Process</h3>
+                  <h3 class="text-xl font-semibold mb-4">Cleanup & Decontamination</h3>
                   <p class="text-gray-600 mb-4">
-                    Removing lead-painted components (such as doors, windows, and trim) and replacing them with lead-free materials. This is a permanent solution that eliminates the hazard entirely.
+                    HEPA vacuuming and wet-wiping are used to remove any remaining dust and debris. Air quality testing is conducted to ensure the area is free of lead hazards.
                   </p>
                   <ul class="space-y-2">
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Completely removes lead hazards</span>
+                      <span>Thorough decontamination</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Permanent solution</span>
+                      <span>HEPA filtration systems</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Improves property value</span>
+                      <span>Air quality testing</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <!-- Interim Control -->
-            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="interim">
+            <!-- Final Inspection -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="inspection-final">
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <h3 class="text-xl font-semibold mb-4">Interim Control Measures</h3>
+                  <h3 class="text-xl font-semibold mb-4">Final Inspection & Clearance Testing</h3>
                   <p class="text-gray-600 mb-4">
-                    Temporary measures to reduce exposure to lead hazards, such as specialized cleaning, repairs, and painting. These solutions provide immediate risk reduction but require ongoing maintenance.
+                    A certified inspector performs a final check to confirm that lead levels are within safe limits. Clearance documentation is provided to verify compliance with local and federal regulations.
                   </p>
                   <ul class="space-y-2">
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Quick and affordable</span>
+                      <span>Certified clearance testing</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Reduces lead exposure risks</span>
+                      <span>Compliance documentation</span>
                     </li>
                     <li class="flex items-start gap-2">
                       <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                       </svg>
-                      <span>Requires regular maintenance</span>
+                      <span>Peace of mind for occupants</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
+        </section>
+
+        <section class="grid sm:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex items-center gap-4">
+                <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="text-xl font-semibold">Certified Professionals</h3>
+              </div>
+              <p class="text-gray-600 mt-4">
+                Our team consists of certified lead abatement professionals with years of experience.
+              </p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex items-center gap-4">
+                <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="text-xl font-semibold">Quick Response</h3>
+              </div>
         </section>
 
         <section class="grid sm:grid-cols-2 gap-6">
