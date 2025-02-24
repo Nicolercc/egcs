@@ -52,16 +52,21 @@ import WhyChooseUs from '../../components/WhyChooseUs.astro';
             <div class="grid grid-cols-2 lg:grid-cols-5 gap-2 mb-6">
               <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="encapsulation">Encapsulation</button>
               <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="enclosure">Enclosure</button>
-              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="removal">Paint Removal</button>
+              <!-- <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="removal">Removal</button> -->
               <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="replacement">Replacement</button>
-              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="interim">Interim Control</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="remediation">Remediation</button>
+
+              <!-- ADD THE FOLLOWING: 
+               1. REMEDIATION
+               2. REMOVAL AND DEMOLITION DE ASBESTOS
+              -->
             </div>
 
             <!-- Tab Content -->
 
 			<!-- Encapsulation -->
             <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="encapsulation">
-              <div class="grid sm:grid-cols-2 gap-6">
+              <div class="grid  gap-6">
                 <div>
                   <h3 class="text-xl font-semibold mb-4">Encapsulation Process</h3>
                   <p class="text-gray-600 mb-4">
@@ -97,7 +102,7 @@ import WhyChooseUs from '../../components/WhyChooseUs.astro';
 
 		  <!-- Enclosure -->
 		  <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="enclosure">
-			<div class="grid sm:grid-cols-2 gap-6">
+			<div class="grid  gap-6">
 			  <div>
 				<h3 class="text-xl font-semibold mb-4">Enclosure Process</h3>
 				<p class="text-gray-600 mb-4">
@@ -131,7 +136,7 @@ import WhyChooseUs from '../../components/WhyChooseUs.astro';
 		  </div>
 		  <!-- Paint Removal -->
 		  <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="removal">
-			<div class="grid sm:grid-cols-2 gap-6">
+			<div class="grid  gap-6">
 			  <div>
 				<h3 class="text-xl font-semibold mb-4">Paint Removal Process</h3>
 				<p class="text-gray-600 mb-4">
@@ -165,7 +170,7 @@ import WhyChooseUs from '../../components/WhyChooseUs.astro';
 		  </div>
 		  <!-- replacement -->
 		  <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="replacement">
-			<div class="grid sm:grid-cols-2 gap-6">
+			<div class="grid  gap-6">
 			  <div>
 				<h3 class="text-xl font-semibold mb-4">Replacement Process</h3>
 				<p class="text-gray-600 mb-4">
@@ -197,45 +202,60 @@ import WhyChooseUs from '../../components/WhyChooseUs.astro';
 			  </div> -->
 			</div>
 		  </div>
-		  <!-- Interim Control -->
-		  <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="interim">
-			<div class="grid sm:grid-cols-2 gap-6">
-			  <div>
-				<h3 class="text-xl font-semibold mb-4">Interim Control Measures</h3>
-				<p class="text-gray-600 mb-4">
-				  Temporary measures to reduce exposure to lead hazards, such as specialized cleaning, repairs, and painting. These solutions provide immediate risk reduction but require ongoing maintenance.
-				</p>
-				<ul class="space-y-2">
-				  <li class="flex items-start gap-2">
-					<svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-					</svg>
-					<span>Quick and affordable</span>
-				  </li>
-				  <li class="flex items-start gap-2">
-					<svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-					</svg>
-					<span>Reduces lead exposure risks</span>
-				  </li>
-				  <li class="flex items-start gap-2">
-					<svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-					</svg>
-					<span>Requires regular maintenance</span>
-				  </li>
-				</ul>
-			  </div>
-			  <!-- <div class="relative aspect-video">
-				<img src="https://source.unsplash.com/500x300/?cleaning" alt="Interim Control Measures" class="rounded-lg object-cover w-full h-full">
-			  </div> -->
-			</div>
-		  </div>
+      
+		  <!-- Remediation -->
+      <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="remediation">
+        <div class="grid  gap-6">
+          <!-- add sm:grid-cols-2 for two columns-->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Remediation Process</h3>
+            <p class="text-gray-600 mb-4">
+              Minimizing the risk of asbestos exposure by reducing hazards through methods such as encapsulation, enclosure, or removal. This process may also involve air monitoring and regular inspections to ensure long-term safety.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Seals asbestos fibers in place through encapsulation.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Isolates asbestos materials with enclosure methods.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Eliminates asbestos hazards entirely when removal is performed.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Continuous air monitoring ensures safety during remediation.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Regular inspections help maintain long-term safety.</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Optional: Add an image or illustration -->
+          <!-- <div class="relative aspect-video">
+            <img src="https://source.unsplash.com/500x300/?asbestos-remediation" alt="Remediation Process" class="rounded-lg object-cover w-full h-full">
+          </div> -->
+        </div>
+      </div>
 		  
         </section>
 
        <!-- why choose us -->
-       <section class="grid sm:grid-cols-2 gap-6">
+       <section class="grid  gap-6">
         <div class="bg-white rounded-lg shadow-lg p-6">
           <div class="flex items-center gap-4">
             <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +264,7 @@ import WhyChooseUs from '../../components/WhyChooseUs.astro';
             <h3 class="text-xl font-semibold">Certified Professionals</h3>
           </div>
           <p class="text-gray-600 mt-4">
-            Our team consists of certified lead abatement professionals with years of experience.
+            Our team consists of certified professionals by the EPA with years of experience.
           </p>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-6">
@@ -260,25 +280,7 @@ import WhyChooseUs from '../../components/WhyChooseUs.astro';
         </div>
       </section>
 
-      <!-- FAQ Section -->
-      <section>
-        <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-        <div class="space-y-4">
-          <!-- Accordion Item -->
-          <div class="bg-white rounded-lg shadow-lg">
-            <button class="w-full text-left p-6 flex justify-between items-center">
-              <span>How long does lead abatement take?</span>
-              <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="p-6 pt-0 text-gray-600">
-              The duration varies depending on the size of the area and method used. Typically, a standard room takes 1-3 days for complete abatement.
-            </div>
-          </div>
-         
-        </div>
-      </section>
+   
     </div>
 
     <!-- Sidebar -->

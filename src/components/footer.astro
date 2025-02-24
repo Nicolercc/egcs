@@ -2,15 +2,17 @@
 const currentYear = new Date().getFullYear();
 
 const services = [
-    { name: "Project Management", nameEs: "Gestión de Proyectos", url: "/services/project-management" },
-    { name: "Asbestos Management", nameEs: "Gestión de Asbesto", url: "/services/asbestos-management" },
-    { name: "Cleaning Services", nameEs: "Servicios de Limpieza", url: "/services/cleaning" },
+
+    { name: "Asbestos Management"},
+    { name: "Cleaning Services" },
+    { name: "Lead Abatement"},
+    { name: "Mold Remediation"},
 ];
 
 const companyLinks = [
-    { name: "About Us", nameEs: "Sobre Nosotros", url: "/about" },
-    { name: "Contact", nameEs: "Contacto", url: "/quote" },
-    { name: "Get a Quote", nameEs: "Obtener Presupuesto", url: "/quote" },
+    { name: "About Us",  url: "/about" },
+    { name: "Contact",  url: "/quote" },
+    { name: "Get a Quote", url: "/quote" },
 ];
 
 const socialLinks = [
@@ -25,18 +27,18 @@ const socialLinks = [
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="mb-8 md:mb-0">
                 <h3 class="text-xl font-bold mb-4">EGCS</h3>
-                <p class="text-gray-400 lang-en">Providing expert project management and services to empower your space.</p>
-                <p class="text-gray-400 lang-es hidden">Brindamos gestión de proyectos y servicios expertos para potenciar su negocio.</p>
+                <p class="text-gray-400 ">Providing expert asbestos and cleaning services to empower your space.</p>
+               
             </div>
             <div>
                 <h4 class="text-lg font-semibold mb-4 lang-en">Services</h4>
-                <h4 class="text-lg font-semibold mb-4 lang-es hidden">Servicios</h4>
+  
                 <ul class="space-y-2">
                     {services.map(service => (
                         <li>
-                            <a href={service.url} class="text-gray-400 hover:text-white transition-colors">
+                            <a class="text-gray-400 hover:text-white transition-colors">
                                 <span class="lang-en">{service.name}</span>
-                                <span class="lang-es hidden">{service.nameEs}</span>
+                            
                             </a>
                         </li>
                     ))}
@@ -44,13 +46,13 @@ const socialLinks = [
             </div>
             <div>
                 <h4 class="text-lg font-semibold mb-4 lang-en">Company</h4>
-                <h4 class="text-lg font-semibold mb-4 lang-es hidden">Empresa</h4>
+         
                 <ul class="space-y-2">
                     {companyLinks.map(link => (
                         <li>
                             <a href={link.url} class="text-gray-400 hover:text-white transition-colors">
                                 <span class="lang-en">{link.name}</span>
-                                <span class="lang-es hidden">{link.nameEs}</span>
+                               
                             </a>
                         </li>
                     ))}
@@ -58,7 +60,7 @@ const socialLinks = [
             </div>
             <div>
                 <h4 class="text-lg font-semibold mb-4 lang-en">Connect With Us</h4>
-                <h4 class="text-lg font-semibold mb-4 lang-es hidden">Conéctate con Nosotros</h4>
+              
                 <div class="flex space-x-4">
                     {socialLinks.map(link => (
                         <a href={link.url} class="text-gray-400 hover:text-white transition-colors" aria-label={link.name}>
