@@ -6,12 +6,12 @@ interface Props {
 const { class: className = '' } = Astro.props;
 
 // Add type declaration for window object
-declare global {
-  interface Window {
-    google: any;
-    googleTranslateElementInit: () => void;
-  }
-}
+// declare global {
+//   interface Window {
+//     google: any;
+//     googleTranslateElementInit: () => void;
+//   }
+// }
 ---
 
 <div class={`translator-container inline-flex items-center ${className}`}>
