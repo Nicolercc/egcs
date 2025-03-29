@@ -1,0 +1,25 @@
+---
+import WhyChooseUsCard from './WhyChooseUsCard.astro';
+
+interface FeatureCard {
+    title: string;
+    description: string;
+    iconPath: string;
+}
+
+interface Props {
+    features: FeatureCard[];
+}
+
+const { features } = Astro.props;
+---
+
+<section class="grid sm:grid-cols-2 gap-6">
+    {features.map(feature => (
+        <WhyChooseUsCard
+            title={feature.title}
+            description={feature.description}
+            iconPath={feature.iconPath}
+        />
+    ))}
+</section> 

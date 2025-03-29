@@ -1,0 +1,12 @@
+#google_translate_element {
+	margin-left: 10px; /* Adjust spacing */
+}
+
+.goog-te-gadget {
+	color: #333; /* Change text color */
+}
+
+.goog-te-gadget select {
+	border-radius: 4px; /* Rounded corners */
+	border: 1px solid #ccc; /* Border color */
+}

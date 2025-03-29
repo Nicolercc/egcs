@@ -8,6 +8,7 @@ import AsbestosImg from '../assets/Asbestos-abatement.jpg'
 import MoldImg from '../assets/mold.jpg'
 import LeadImg from '../assets/lead-paint-removal.jpg'
 import HeroImg from "../assets/landing.jpg"
+import Carousel from "@components/carousel.astro";
 import { Image } from "astro:assets";
 
 
@@ -54,7 +55,7 @@ const services = [
 				<p class="text-xl mb-8 text-gray-300">From expert asbestos and lead abatement to mold remediation and professional cleaning, we deliver trusted environmental services across the Tristate area. Our commitment to safety, quality, and compliance ensures your space is clean, healthy, and hazard-free.</p>
 				
 				<div class="text-center mt-4">
-					<a class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg transition duration-300" href="/quote">Contact Us</a>
+					<a class="inline-block bg-yellow-600 rounded-2xl hover:bg-yellow-700 text-white px-6 py-3  transition duration-300" href="/quote">Contact Us</a>
 				</div>
 			</div>
 		</section>
@@ -65,14 +66,20 @@ const services = [
 			<div class="flex flex-col md:flex-row ">
 		
 				<div class="w-full m">
-					<h2 class="text-4xl font-bold mb-6 text-center">EGCS is Family Owned &amp; Operated</h2>
-					
-					<p class="text-lg text-gray-700 mb-6">
-						We offer <b>immediate solutions</b>. We have specialized, certified, and highly experienced personnel to carry out the work. 
-						If you are concerned about whether your property, home, or workplace may be contaminated with <b>mold, lead, or asbestos</b>, 
-						or if you need a continuous <b>cleaning system</b>. We are here for you; <b>call us</b> and we can help you immediately. It doesn't matter if it's a small 
-						or large damage, because <b>our clients are important to us</b>.
-					</p>
+					<h2 class="text-4xl font-bold mb-6 text-center pb-10">EGCS is Family Owned &amp; Operated</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10">
+						<div class="flex items-center">
+							<p class="text-lg text-gray-700 md:pr-6 md:py-4">
+								We offer <b>immediate solutions</b>. We have specialized, certified, and highly experienced personnel to carry out the work. 
+								If you are concerned about whether your property, home, or workplace may be contaminated with <b>mold, lead, or asbestos</b>, 
+								or if you need a continuous <b>cleaning system</b>. We are here for you; <b>call us</b> and we can help you immediately. It doesn't matter if it's a small 
+								or large damage, because <b>our clients are important to us</b>.
+							</p>
+						</div>
+						<div class="flex items-center">
+							<Carousel />
+						</div>
+					</div>
 					
 					
 				</div>
