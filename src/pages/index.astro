@@ -1,6 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
-import RelatedProjects from "../components/relatedprojects.astro";
+
 import BaseLayout from '../layouts/baselayout.astro'
 import ContactSection from '../components/ContactSection.astro';
 import CleaningImg from '../assets/cleaning.jpg'
@@ -15,25 +15,38 @@ import { Image } from "astro:assets";
 const services = [
  
 
-{ title: 'Asbestos Abatement' , img: AsbestosImg, link:'/services/asbestos-abatement'},
-{ title: 'Mold Remediation', img: MoldImg, link:'/services/mold-remediation'  },
-{ title: 'Lead Abatement', img: LeadImg, link:'/services/lead-abatement' },
-{ title: 'Cleaning Services', img: CleaningImg, link:'/services/cleaning-services'},
+{ 
+  title: 'Asbestos Abatement', 
+  img: AsbestosImg, 
+  alt: 'Protective worker performing asbestos abatement service', 
+  link: '/services/asbestos-abatement' 
+},
+{ 
+  title: 'Mold Remediation', 
+  img: MoldImg, 
+  alt: 'Professional cleaning mold from residential wall', 
+  link: '/services/mold-remediation'  
+},
+{ 
+  title: 'Lead Abatement', 
+  img: LeadImg, 
+  alt: 'Technician conducting lead paint removal in an old building', 
+  link: '/services/lead-abatement' 
+},
+{ 
+  title: 'Cleaning Services', 
+  img: CleaningImg, 
+  alt: 'Residential or commercial space being cleaned by a janitorial crew', 
+  link: '/services/cleaning-services' 
+},
+
  
 ];
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Our Business Services</title>
-		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-	</head>
-	<BaseLayout class="bg-gray-100">
+
+	<BaseLayout title="Elite Global Cleaning Services">
 	
 	
 	
@@ -44,7 +57,7 @@ const services = [
 			<div class="absolute inset-0 w-full h-full">
 				<Image 
 					src={HeroImg} 
-					alt="Landing Background" 
+					alt="Workers performing professional asbestos, mold removal, lead abatement, and cleaning services in NYC home"
 					class="w-full h-full object-cover"
 				/>
 			</div>
@@ -125,6 +138,7 @@ const services = [
 
 			<ContactSection
 			title="Contact Our Team" 
+			aria-label="Request a quote for asbestos, mold, or lead abatement"
 			email="eliteglobalcs1.llc@gmail.com" 
 		/>
 		</section>

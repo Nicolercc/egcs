@@ -2,20 +2,72 @@
 import Footer from "../components/footer.astro";
 import Navbar from "../components/Navbar.astro";
 
-const { title } = Astro.props;
+const { title = "Elite Global Cleaning Services | EGCS" } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>{title}</title>
+    <meta name="description" content="Elite Global Cleaning Services offers asbestos abatement, mold remediation, lead abatement, and residential/commercial cleaning throughout the Tristate area." />
+    <meta name="keywords" content="asbestos abatement, mold remediation, lead removal, cleaning services, environmental services, NYC, Tri-state area, EGCS" />
+    <meta name="author" content="Elite Global Cleaning Services" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Elite Global Cleaning Services" />
+    <meta property="og:description" content="We provide top-tier environmental cleaning services across NYC and the Tri-state area, specializing in asbestos, mold, and lead abatement." />
+    <meta property="og:image" content="/social-preview.jpg" />
+    <meta property="og:url" content="https://www.eliteglobalcleaning.com" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Elite Global Cleaning Services" />
+    <meta name="twitter:description" content="Your trusted experts in mold, asbestos, and lead abatement in the Tri-state area." />
+    <meta name="twitter:image" content="/social-preview.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.eliteglobalcleaning.com" />
+
     <style is:global>
       /* Prevent FOUC (Flash of Untranslated Content) */
       .goog-te-spinner-pos {
         z-index: 1000;
       }
     </style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Elite Global Cleaning Services",
+    "image": "https://yourdomain.com/assets/landing.jpg",
+    "url": "https://yourdomain.com",
+    "telephone": "+1-555-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Main St",
+      "addressLocality": "Queens",
+      "addressRegion": "NY",
+      "postalCode": "11375",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.7282,
+      "longitude": -73.7949
+    },
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "sameAs": [
+      "https://www.facebook.com/eliteglobalcs",
+      "https://www.instagram.com/eliteglobalcs"
+    ]
+  }
+  </script>
+  
   </head>
   <body>
     <Navbar />
