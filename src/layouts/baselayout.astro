@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/footer.astro";
 import Navbar from "../components/Navbar.astro";
-
+import Loading from "@components/loading.astro";
 const { title = "Elite Global Cleaning Services | EGCS" } = Astro.props;
 ---
 
@@ -70,6 +70,7 @@ const { title = "Elite Global Cleaning Services | EGCS" } = Astro.props;
   
   </head>
   <body>
+    <Loading />
     <Navbar />
 
     <main>
@@ -79,5 +80,11 @@ const { title = "Elite Global Cleaning Services | EGCS" } = Astro.props;
     <footer>
       <Footer />
     </footer>
+    <script>
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("global-loader")
+        if (loader) loader.style.display = 'none'
+      })
+    </script>
   </body>
 </html>

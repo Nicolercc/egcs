@@ -75,7 +75,7 @@ const images = await Promise.all(
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const carousel = document.getElementById('indicators-carousel');
-        if (!carousel) return; // Early return if carousel element not found
+        if (!carousel) return; // Early return if el not found
 
         const items = carousel.querySelectorAll('[data-carousel-item]');
         const indicators = carousel.querySelectorAll('[data-carousel-slide-to]');
