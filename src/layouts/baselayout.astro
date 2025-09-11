@@ -74,18 +74,15 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
     <Loading />
     <Navbar />
 
-    <main>
+    <main class="content-loading">
       <slot />
     </main>
 
     <footer>
       <Footer />
     </footer>
-    <script>
-      window.addEventListener("load", () => {
-        const loader = document.getElementById("global-loader")
-        if (loader) loader.style.display = 'none'
-      })
-    </script>
+    
+    <!-- Enhanced Loading Manager -->
+    <script src="/src/scripts/loadingManager.js"></script>
   </body>
 </html>

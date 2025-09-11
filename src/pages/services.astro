@@ -7,41 +7,7 @@ import LeadAbatementImg from '../assets/lead-paint-removal.jpg';
 import MoldRemediationImg from '../assets/mold.jpg';
 import { Image } from 'astro:assets';
 
-
 const basePath = Astro.url.pathname.includes('/services') ? '/services' : ''
-
-
-// Services data
-// const services = [
-//   {
-//     title: "Cleaning Services",
-//     img: CleaningServicesImg,
-//     description:
-//       "Our thorough cleaning services are designed to meet the highest standards, whether for commercial or residential spaces.",
-//     link: '/cleaning-services',
-//   },
-//   {
-//     title: "Asbestos Abatement",
-//     img: AsbestosAbatementImg,
-//     description:
-//       "Our trained professionals safely and effectively handle asbestos abatement, ensuring compliance with all regulations while minimizing disruption to your property.",
-//     link: '/asbestos-abatement',
-//   },
-//   {
-//     title: "Lead Abatement",
-//     img: LeadAbatementImg,
-//     description:
-//       "Our certified team provides comprehensive solutions for the removal of lead paint hazards, ensuring the safety of your property and its occupants.",
-//     link: '/lead-abatement',
-//   },
-//   {
-//     title: "Mold Remediation",
-//     img: MoldRemediationImg,
-//     description:
-//       "We specialize in removing mold and preventing future growth, restoring your space to a healthy and safe environment.",
-//     link: '/mold-remediation',
-//   },
-// ];
 
 // Licenses data
 const licenses = [
@@ -57,22 +23,16 @@ const licenses = [
 const contactInfo = {
   name: "Elite Global Cleaning Services",
   address: "New York, New York",
-  phone: "(929) 354-4114",
+  phones: [
+    "(929) 888-3848",
+    "(929) 784-8804", 
+    "(929) 354-4114"
+  ],
   email: "eliteglobalcs1.llc@gmail.com",
 };
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Our Business Services</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <BaseLayout>
+
+<BaseLayout title="Our Services - Elite Global Cleaning Services">
     <!-- Services Section -->
     <div class="bg-gray-100">
       <section class="py-16">
@@ -238,6 +198,5 @@ const contactInfo = {
         </div>
       </section>
     </div>
-  </BaseLayout>
-</html>
+</BaseLayout>
 
