@@ -1,17 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: [
-		"./src/**/*.{astro,html,js,jsx,ts,tsx}", // Ensure your project's paths are covered
-		"./components/**/*.{js,jsx,ts,tsx}", // Add this for ShadCN components
+		"./src/**/*.{astro,html,js,jsx,ts,tsx}",
+		"./components/**/*.{js,jsx,ts,tsx}",
 	],
 	theme: {
 		extend: {
-			// Add any customizations here
+			// customizations here
 		},
 	},
 	plugins: [
-		require("@tailwindcss/typography"), // Optional: Add plugins used by ShadCN
-		require("@tailwindcss/forms"), // Optional: For better forms styling
-		require("@tailwindcss/aspect-ratio"), // Optional: For aspect ratios
+		require("@tailwindcss/typography"),
+		require("@tailwindcss/forms"),
+		require("@tailwindcss/aspect-ratio"),
 	],
 };
