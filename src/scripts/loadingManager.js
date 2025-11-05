@@ -6,7 +6,8 @@ class LoadingManager {
 		this.loadedImages = new Set();
 		this.totalImages = 0;
 		this.textContentLoaded = false;
-		this.minimumLoadTime = 500;
+
+		this.minimumLoadTime = 300;
 		this.startTime = Date.now();
 
 		this.init();
@@ -23,6 +24,7 @@ class LoadingManager {
 
 	setupLoading() {
 		// Count all images on the page
+		console.log("🚀 LoadingManager initialized");
 		this.countImages();
 
 		// Set up image load listeners
@@ -41,6 +43,8 @@ class LoadingManager {
 	countImages() {
 		const images = document.querySelectorAll("img");
 		this.totalImages = images.length;
+
+		console.log(`🖼️ Found ${this.totalImages} images`);
 
 		// If no images, mark images as loaded
 		if (this.totalImages === 0) {
@@ -69,6 +73,9 @@ class LoadingManager {
 
 			// Handle image load errors
 			img.addEventListener("error", () => {
+				console.log(
+					`✓ Image ${index + 1} loaded (${this.loadedImages.size}/${this.totalImages})`
+				);
 				this.loadedImages.add(`img-${index}`);
 				this.checkLoadingComplete();
 			});
@@ -109,6 +116,7 @@ class LoadingManager {
 			// Small delay to ensure text content is fully rendered
 			setTimeout(() => {
 				this.textContentLoaded = true;
+				console.log("📝 Text content loaded");
 				this.checkLoadingComplete();
 			}, 100);
 		});
