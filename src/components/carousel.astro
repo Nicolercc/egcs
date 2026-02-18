@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 
-
 const imageData = [
   { path: import('../assets/IMG_1647.jpg'), description: "Wall plaster removal" },
   { path: import('../assets/IMG_2453.jpg'), description: "Mold removal" },
@@ -27,119 +26,337 @@ const imageData = [
   { path: import('../assets/IMG_2389.jpg'), description: "Mold detection" },
   { path: import('../assets/IMG_2611.jpg'), description: "Roof asbestos removal" },
   { path: import('../assets/IMG_2599.jpg'), description: "Roof asbestos removal" },
-
 ];
 
+// Optimize image loading: eager for first, lazy for others
 const images = await Promise.all(
-  imageData.map(async (item) => ({
+  imageData.map(async (item, index) => ({
     image: (await item.path).default,
-    description: item.description
+    description: item.description,
+    loading: index === 0 ? 'eager' : 'lazy' as 'eager' | 'lazy',
+    fetchpriority: index === 0 ? 'high' : 'auto' as 'high' | 'auto'
   }))
 );
 ---
 
-<div id="indicators-carousel" class="relative w-full mt-4 mb-2 md:my-0" data-carousel="static">
+<div 
+    id="indicators-carousel" 
+    class="relative w-full mt-4 mb-2 md:my-0 group/carousel" 
+    data-carousel="static"
+    role="region"
+    aria-label="Image carousel"
+>
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-[300px]">
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-[300px] bg-gray-100">
         {images.map((item, index) => (
-            <div class={"absolute block w-full h-full transition-opacity duration-700 ease-in-out " + (index === 0 ? "opacity-100" : "opacity-0")} data-carousel-item>
-                <Image src={item.image} alt={ item.description ||`Slide ${index + 1}`} class="absolute w-full h-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 text-center">
-                    <p class="text-sm md:text-base">{item.description}</p>
+            <div 
+                class={"absolute block w-full h-full transition-opacity duration-700 ease-in-out " + (index === 0 ? "opacity-100 z-10" : "opacity-0 z-0")} 
+                data-carousel-item
+                data-index={index}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`Slide ${index + 1} of ${images.length}`}
+            >
+                <Image 
+                    src={item.image} 
+                    alt={item.description || `Slide ${index + 1}`} 
+                    class="absolute w-full h-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover" 
+                    loading={item.loading}
+                    fetchpriority={item.fetchpriority}
+                    widths={[400, 800, 1200]}
+                    sizes="(max-width: 768px) 100vw, 1200px"
+                />
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent text-white p-3 md:p-4 pb-10 md:pb-12 text-center">
+                    <p class="text-sm md:text-base font-medium">{item.description}</p>
                 </div>
             </div>
         ))}
     </div>
     
-   
+    <!-- Slide indicators -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex space-x-2" role="tablist" aria-label="Slide indicators">
+        {images.map((_, index) => (
+            <button
+                type="button"
+                class={"w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 " + (index === 0 ? "bg-yellow-500 w-6" : "bg-white/50 hover:bg-white/70")}
+                data-carousel-slide-to={index}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-selected={index === 0 ? "true" : "false"}
+                role="tab"
+                tabindex={index === 0 ? "0" : "-1"}
+            ></button>
+        ))}
+    </div>
     
     <!-- Slider controls -->
-    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
+    <button 
+        type="button" 
+        class="absolute top-1/2 -translate-y-1/2 start-3 z-30 flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full bg-yellow-500/95 backdrop-blur-sm group transition-all duration-300 ease-out hover:bg-yellow-600 hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-yellow-500/40 focus:ring-offset-2 shadow-xl hover:shadow-2xl opacity-0 group-hover/carousel:opacity-100 md:opacity-100" 
+        data-carousel-prev
+        aria-label="Previous slide"
+    >
+        <svg class="w-5 h-5 text-gray-900 rtl:rotate-180 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+        <span class="sr-only">Previous slide</span>
     </button>
-    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
-            <svg class="w-4 h-4 text-white dark:text-gray-800" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
+    <button 
+        type="button" 
+        class="absolute top-1/2 -translate-y-1/2 end-3 z-30 flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full bg-yellow-500/95 backdrop-blur-sm group transition-all duration-300 ease-out hover:bg-yellow-600 hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-yellow-500/40 focus:ring-offset-2 shadow-xl hover:shadow-2xl opacity-0 group-hover/carousel:opacity-100 md:opacity-100" 
+        data-carousel-next
+        aria-label="Next slide"
+    >
+        <svg class="w-5 h-5 text-gray-900 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span class="sr-only">Next slide</span>
     </button>
+
+    <!-- ARIA live region for screen readers -->
+    <div class="sr-only" aria-live="polite" aria-atomic="true" id="carousel-announcement"></div>
 </div>
+
+<style>
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+        #indicators-carousel [data-carousel-item] {
+            transition: none !important;
+        }
+        #indicators-carousel button {
+            transition: background-color 0.2s ease !important;
+        }
+    }
+
+    /* Smooth transitions for carousel items */
+    #indicators-carousel [data-carousel-item] {
+        will-change: opacity;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const carousel = document.getElementById('indicators-carousel');
-        if (!carousel) return; // Early return if el not found
+        if (!carousel) return;
 
         const items = carousel.querySelectorAll('[data-carousel-item]');
         const indicators = carousel.querySelectorAll('[data-carousel-slide-to]');
+        const announcement = document.getElementById('carousel-announcement');
         let currentIndex = 0;
+        let autoPlayInterval: ReturnType<typeof setInterval> | null = null;
+        let isPaused = false;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const AUTO_PLAY_DELAY = 5000;
+        const SWIPE_THRESHOLD = 50;
 
-        function showSlide(index: number): void {
+        // Preload next image for smoother transitions
+        function preloadNextImage(index: number): void {
+            const nextIndex = (index + 1) % items.length;
+            const nextItem = items[nextIndex] as HTMLElement;
+            const nextImage = nextItem?.querySelector('img');
+            if (nextImage && !nextImage.complete) {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = nextImage.src;
+                document.head.appendChild(link);
+            }
+        }
+
+        function announceSlide(index: number): void {
+            if (announcement) {
+                const slide = items[index] as HTMLElement;
+                const label = slide.getAttribute('aria-label') || `Slide ${index + 1} of ${items.length}`;
+                announcement.textContent = label;
+            }
+        }
+
+        function showSlide(index: number, direction: 'next' | 'prev' | 'direct' = 'direct'): void {
+            if (index < 0 || index >= items.length) return;
+
+            // Update current index
+            currentIndex = index;
+
             // Hide all slides
-            items.forEach(item => {
-                item.classList.remove('opacity-100');
-                item.classList.add('opacity-0');
+            items.forEach((item, i) => {
+                const element = item as HTMLElement;
+                if (i === index) {
+                    element.classList.remove('opacity-0', 'z-0');
+                    element.classList.add('opacity-100', 'z-10');
+                    element.setAttribute('aria-hidden', 'false');
+                } else {
+                    element.classList.remove('opacity-100', 'z-10');
+                    element.classList.add('opacity-0', 'z-0');
+                    element.setAttribute('aria-hidden', 'true');
+                }
             });
-            
-            // Show current slide
-            items[index].classList.remove('opacity-0');
-            items[index].classList.add('opacity-100');
             
             // Update indicators
-            indicators.forEach(indicator => {
-                indicator.classList.remove('bg-white');
-                indicator.classList.add('bg-white/30');
+            indicators.forEach((indicator, i) => {
+                const btn = indicator as HTMLButtonElement;
+                if (i === index) {
+                    btn.classList.remove('bg-white/50', 'w-2');
+                    btn.classList.add('bg-yellow-500', 'w-6');
+                    btn.setAttribute('aria-selected', 'true');
+                    btn.setAttribute('tabindex', '0');
+                } else {
+                    btn.classList.remove('bg-yellow-500', 'w-6');
+                    btn.classList.add('bg-white/50', 'w-2');
+                    btn.setAttribute('aria-selected', 'false');
+                    btn.setAttribute('tabindex', '-1');
+                }
             });
-            if (indicators[index]) {
-                indicators[index].classList.remove('bg-white/30');
-                indicators[index].classList.add('bg-white');
-            }
+
+            // Announce to screen readers
+            announceSlide(index);
+
+            // Preload next image
+            preloadNextImage(index);
         }
 
         function nextSlide(): void {
-            currentIndex = (currentIndex + 1) % items.length;
-            showSlide(currentIndex);
+            const nextIndex = (currentIndex + 1) % items.length;
+            showSlide(nextIndex, 'next');
         }
 
         function previousSlide(): void {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            showSlide(currentIndex);
+            const prevIndex = (currentIndex - 1 + items.length) % items.length;
+            showSlide(prevIndex, 'prev');
         }
 
-        // Add click events for next/previous buttons
-        const nextButton = carousel.querySelector('[data-carousel-next]');
-        const prevButton = carousel.querySelector('[data-carousel-prev]');
+        function goToSlide(index: number): void {
+            showSlide(index, 'direct');
+        }
+
+        function startAutoPlay(): void {
+            if (autoPlayInterval) return;
+            autoPlayInterval = setInterval(() => {
+                if (!isPaused && !document.hidden) {
+                    nextSlide();
+                }
+            }, AUTO_PLAY_DELAY);
+        }
+
+        function stopAutoPlay(): void {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+
+        function pauseAutoPlay(): void {
+            isPaused = true;
+        }
+
+        function resumeAutoPlay(): void {
+            isPaused = false;
+        }
+
+        // Button event listeners
+        const nextButton = carousel.querySelector('[data-carousel-next]') as HTMLButtonElement;
+        const prevButton = carousel.querySelector('[data-carousel-prev]') as HTMLButtonElement;
 
         if (nextButton) {
-            nextButton.addEventListener('click', nextSlide);
-        }
-        if (prevButton) {
-            prevButton.addEventListener('click', previousSlide);
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                pauseAutoPlay();
+                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
+            });
         }
 
-        // Add click events for indicators
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                previousSlide();
+                pauseAutoPlay();
+                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
+            });
+        }
+
+        // Indicator click events
         indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentIndex = index;
-                showSlide(currentIndex);
+            const btn = indicator as HTMLButtonElement;
+            btn.addEventListener('click', () => {
+                goToSlide(index);
+                pauseAutoPlay();
+                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
             });
         });
 
-        // Optional: Auto-play
-        const autoPlayInterval = setInterval(nextSlide, 5000);
+        // Keyboard navigation
+        carousel.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+                pauseAutoPlay();
+                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                nextSlide();
+                pauseAutoPlay();
+                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(items.length - 1);
+            }
+        });
 
-        // Clean up interval on page leave
+        // Touch/swipe gestures
+        carousel.addEventListener('touchstart', (e: TouchEvent) => {
+            touchStartX = e.changedTouches[0].screenX;
+            pauseAutoPlay();
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e: TouchEvent) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
+        }, { passive: true });
+
+        function handleSwipe(): void {
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > SWIPE_THRESHOLD) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+            }
+        }
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', pauseAutoPlay);
+        carousel.addEventListener('mouseleave', resumeAutoPlay);
+        carousel.addEventListener('focusin', pauseAutoPlay);
+        carousel.addEventListener('focusout', resumeAutoPlay);
+
+        // Pause when page is hidden
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                clearInterval(autoPlayInterval);
+                pauseAutoPlay();
+            } else {
+                resumeAutoPlay();
             }
+        });
+
+        // Respect reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            carousel.classList.add('reduce-motion');
+        }
+
+        // Initialize
+        showSlide(0);
+        startAutoPlay();
+        preloadNextImage(0);
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            stopAutoPlay();
         });
     });
 </script>

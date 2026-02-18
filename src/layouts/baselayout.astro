@@ -1,7 +1,6 @@
 ---
 import Footer from "../components/footer.astro";
 import Navbar from "../components/Navbar.astro";
-import Loading from "@components/loading.astro";
 const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal & Cleaning in NYC" } = Astro.props;
 
 ---
@@ -71,10 +70,10 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
   
   </head>
   <body>
-    <Loading />
+  
     <Navbar />
 
-    <main class="content-loading">
+    <main class="">
       <slot />
     </main>
 
@@ -82,7 +81,6 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
       <Footer />
     </footer>
     
-    <!-- Enhanced Loading Manager -->
-    <script src="/src/scripts/loadingManager.js"></script>
+   
   </body>
 </html>
