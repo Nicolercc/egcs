@@ -2,53 +2,95 @@
 import BaseLayout from "../layouts/baselayout.astro";
 ---
 
-<BaseLayout title="About Us - Elite Global Cleaning Services">
-        <div class="container mx-auto px-4 py-12 space-y-8">
-            <!-- Introduction -->
-            <section class="space-y-4">
-                <h2 class="text-2xl font-semibold text-gray-700 py-4"></h2>
-                <h2 class="text-2xl font-semibold text-gray-700 text-center py-4">Welcome to EGCS</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    At EGCS, we're dedicated to streamlining your projects and enhancing your business operations. As a boutique project management firm, we offer personalized solutions tailored to your unique needs. Our mission is to empower businesses through expert project management, asbestos management, and cleaning services, all delivered with a personal touch and unwavering commitment to excellence.
-                </p>
-            </section>
-            
-            <!-- Founder's Background -->
-            <section class="bg-gray-100 p-6 rounded-lg space-y-4 mt-12"> <!-- Added mt-12 -->
-                <h2 class="text-2xl font-semibold text-gray-700">Meet Our Founder</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    Olga Burbano, the driving force behind EGCS, brings years of experience in project management and business operations. With a background in business administration, Ms. Burbano has successfully led diverse projects across multiple industries. Their hands-on approach and deep industry knowledge ensure that every client receives top-tier expertise and personalized attention, making complex projects manageable and successful.
-                </p>
-            </section>
-            
-            <!-- Purpose -->
-            <section class="space-y-4">
-                <h2 class="text-2xl font-semibold text-gray-700">Our Purpose</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    At EGCS, we're driven by more than just project completion. Our purpose is to empower businesses by simplifying complex processes, allowing you to focus on what you do best. We believe that effective project management is key to business growth and success. By providing expert guidance and support, we aim to make a lasting impact on our clients' operations, fostering efficiency, innovation, and sustainable growth.
-                </p>
-            </section>
-            
-            <!-- Corporate Responsibility -->
-            <section class="space-y-4">
-                <h2 class="text-2xl font-semibold text-gray-700">Our Commitment to Responsibility</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    We're committed to conducting our business with the highest ethical standards and a strong sense of responsibility. This includes:
-                </p>
-                <ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-2">
-                    <li><strong>Sustainability:</strong> Implementing eco-friendly practices in our operations and recommending sustainable solutions to our clients.</li>
-                    <li><strong>Community Engagement:</strong> Actively participating in local community initiatives and supporting charitable causes.</li>
-                    <li><strong>Ethical Practices:</strong> Maintaining transparency in our dealings and adhering to the highest professional standards in project management.</li>
-                </ul>
-            </section>
-            
-            <!-- Call to Action -->
-            <section class="text-center space-y-4">
-                <h2 class="text-2xl font-semibold text-gray-700">Ready to Elevate Your Projects?</h2>
-                <p class="text-gray-600">Let's discuss how we can bring efficiency and success to your next project.</p>
-                <a href="/quote" class="inline-block bg-yellow-600 text-white py-3 px-8 rounded-lg hover:bg-yellow-700 transition duration-300">
-                    Contact Us for a Consultation
-                </a>
-            </section>
+<BaseLayout title="About EGCS - Elite Global Cleaning Services">
+  <main class="bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <div class="max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-16">
+      <!-- Hero / Intro -->
+      <section class="text-center space-y-6">
+        <p class="text-xs font-semibold tracking-[0.25em] text-yellow-600 uppercase  py-10">
+          About EGCS
+        </p>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+          A smaller company by choice. A higher standard by design.
+        </h1>
+        <p class="max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed">
+          We started EGCS because after years in this industry, we knew it could be done better. 
+          Not just faster or cheaper — but with more honesty, more care, and more accountability 
+          than most companies bother with.
+        </p>
+      </section>
+
+      <!-- Founder -->
+      <section class="grid grid-cols-1 md:grid-cols-[1.1fr,1.2fr] gap-10 md:gap-12 items-start">
+        <div class="space-y-4">
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-900">
+            Founder: <span class="text-yellow-600">Olga Burbano</span>
+          </h2>
+          <p class="text-gray-600 leading-relaxed">
+            Olga Burbano spent years working inside this industry before she decided to build something of her own. 
+            She'd seen how these jobs were handled — the cut corners, the vague timelines, the clients left confused 
+            about what was actually done in their building. She knew she could do better. So she did.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            EGCS is the result of that decision — a company small enough to actually care about every client, 
+            and experienced enough to handle what most can't.
+          </p>
         </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white/70 shadow-sm px-6 py-6 md:px-8 md:py-20">
+          <h3 class="text-sm font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
+            What drives us
+          </h3>
+          <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+            Every project we take on impacts real people — families, students, staff, and workers who need their 
+            spaces to be safe. That responsibility is never “just another job” to us. It’s the reason we show up 
+            the way we do.
+          </p>
+        </div>
+      </section>
+
+      <!-- Who We Work With -->
+      <section class="space-y-6">
+        <h2 class="text-xl md:text-2xl font-semibold text-gray-900">
+          Who We Work With
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Our clients are school administrators responsible for the safety of hundreds of kids. 
+          Property managers juggling a dozen buildings and a compliance deadline. Homeowners who just got 
+          news they weren't expecting. Industrial facility owners who need the job done right the first time.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          What they all have in common: they need someone they can trust to handle something serious — and they 
+          don't have room for mistakes.
+        </p>
+      </section>
+
+      <!-- What We Promise -->
+      <section class="space-y-6">
+        <div class="rounded-2xl border border-yellow-100 bg-yellow-50/70 px-6 py-6 md:px-8 md:py-7">
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
+            What We Promise
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            When you work with EGCS, you're not getting handed off to a crew you've never met. 
+            You get Burbano's team, her standards, and her direct involvement. You'll know what's happening, 
+            why it's happening, and what comes next. That's not a sales pitch — that's just how we operate.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+          <p class="text-gray-600 text-sm md:text-base">
+            If you need a partner who treats your building — and the people in it — like their own, 
+            we'd be honored to work with you.
+          </p>
+          <a
+            href="/quote"
+            class="inline-flex items-center justify-center bg-yellow-600 hover:bg-yellow-700 text-white font-semibold text-sm md:text-base p-2  rounded-full shadow-md transition-colors duration-200"
+          >
+            Get a Quote
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
 </BaseLayout>
