@@ -1,11 +1,24 @@
 ---
 import Footer from "../components/footer.astro";
 import Navbar from "../components/Navbar.astro";
-const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal & Cleaning in NYC" } = Astro.props;
+import { getLangFromUrl, useTranslations } from "../i18n/translations";
 
+interface Props {
+  title?: string;
+  lang?: "en" | "es";
+}
+
+const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal & Cleaning in NYC", lang = getLangFromUrl(Astro.url) } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const origin = Astro.url.origin;
+const pathEn = pathname.startsWith("/es") ? (pathname.slice(3) || "/") : pathname;
+const pathEs = pathname.startsWith("/es") ? pathname : pathname === "/" ? "/es" : "/es" + pathname;
+const englishUrl = origin + pathEn;
+const spanishUrl = origin + pathEs;
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <link rel="preload" as="image" href="/_astro/hero.CZAvY9WT_L8RQA.webp" type="image/webp" />
     <meta charset="UTF-8" />
@@ -33,42 +46,15 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.eliteglobalcleaning.com" />
 
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="es" href={spanishUrl} />
+
     <style is:global>
       /* Prevent FOUC (Flash of Untranslated Content) */
       .goog-te-spinner-pos {
         z-index: 1000;
       }
     </style>
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Elite Global Cleaning Services",
-    "image": "https://yourdomain.com/assets/landing.jpg",
-    "url": "https://yourdomain.com",
-    "telephone": "+1-555-123-4567",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "123 Main St",
-      "addressLocality": "Queens",
-      "addressRegion": "NY",
-      "postalCode": "11375",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.7282,
-      "longitude": -73.7949
-    },
-    "openingHours": "Mo-Fr 09:00-17:00",
-    "sameAs": [
-      "https://www.facebook.com/eliteglobalcs",
-      "https://www.instagram.com/eliteglobalcs"
-    ]
-  }
-  </script>
-  
   </head>
   <body>
   
