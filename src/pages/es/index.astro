@@ -1,10 +1,14 @@
 ---
-import BaseLayout from '../layouts/baselayout.astro'
-import ContactSection from '../components/ContactSection.astro';
-import ServicesSection from '../components/ServicesSection.astro';
-import hero from '../assets/hero.jpeg'
+import BaseLayout from '../../layouts/baselayout.astro'
+import ContactSection from '../../components/ContactSection.astro';
+import ServicesSection from '../../components/ServicesSection.astro';
+import hero from '../../assets/hero.jpeg'
 import Carousel from "@components/carousel.astro";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 
@@ -24,11 +28,11 @@ import { Image } from "astro:assets";
 			
 			<div class="relative z-10 max-w-3xl mx-auto px-4">
 				<!-- <h2 class="text-4xl font-bold mb-4 text-gray-300">Welcome to </h2> -->
-				<h1 class="text-3xl md:text-5xl font-bold m-6 text-gray-200">Elite Global Cleaning Services</h1>
-				<p class="text-xl mb-8 text-gray-300">Certified asbestos, lead, and mold removal plus professional cleaning—serving the New York Tri-State Area with trusted, safe, and compliant environmental services.</p>
+				<h1 class="text-3xl md:text-5xl font-bold m-6 text-gray-200">{t("hero.title")}</h1>
+				<p class="text-xl mb-8 text-gray-300">{t("hero.subtitle")}</p>
 				
 				<div class="text-center mt-4">
-					<a class="inline-block bg-yellow-600 rounded-2xl hover:bg-yellow-700 text-white px-6 py-3  transition duration-300" href="/quote">Contact Us</a>
+					<a class="inline-block bg-yellow-600 rounded-2xl hover:bg-yellow-700 text-white px-6 py-3  transition duration-300" href="/quote">{t("hero.ctaPrimary")}</a>
 				</div>
 			</div>
 		</section>
@@ -39,15 +43,19 @@ import { Image } from "astro:assets";
 			<div class="flex flex-col md:flex-row ">
 		
 				<div class="w-full">
-					<h2 class="text-3xl md:text-4xl font-bold mb-7 md:mb-10  text-center ">EGCS is Family Owned &amp; Operated</h2>
+					<h2 class="text-3xl md:text-4xl font-bold mb-7 md:mb-10  text-center ">{t("home.familyTitle")}</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10">
 						<div class="flex items-center">
 							<p class="text-lg text-gray-700 md:pr-6 md:py-4">
-								We offer <b>immediate solutions</b>. We have specialized, certified, and highly experienced personnel to carry out the work. 
-								If you are concerned about whether your property, home, or workplace may be contaminated with <b>mold, lead, or asbestos</b>, 
-								or if you need a continuous <b>cleaning system</b>. We are here for you; <b>call us</b> and we can help you immediately. It doesn't matter if it's a small 
-								or large damage, because <b>our clients are important to us</b>.
-							</p>
+								Ofrecemos <strong>soluciones inmediatas</strong>. Contamos con personal 
+								<strong>especializado, certificado y altamente experimentado</strong> para realizar 
+								cada trabajo. Si le preocupa que su propiedad, hogar o lugar de trabajo pueda 
+								estar contaminado con <strong>moho, plomo o asbesto</strong>, o si necesita un 
+								sistema de <strong>limpieza continuo</strong> — estamos aquí para usted. Llámenos 
+								y le ayudamos de inmediato. No importa si el daño es pequeño o grande, porque 
+								<strong>nuestros clientes son lo más importante para nosotros</strong>.
+							  </p>
+							
 						</div>
 						<div class="flex items-center">
 							<Carousel />
@@ -60,15 +68,18 @@ import { Image } from "astro:assets";
 			</div>
 		
 	
-		<ServicesSection />
+		<ServicesSection lang={lang} />
 			  
 		<section class="bg-gray-50 p-0 m-0">
 
-			<ContactSection
-			title="Contact Our Team" 
-			aria-label="Request a quote for asbestos, mold, or lead abatement"
-			email="eliteglobalcs1.llc@gmail.com" 
-		/>
+				<ContactSection
+		title={t("contact.title")}
+		subtitle={t('contact.subtitle')}
+		 callNow={t("contact.callNow")}
+		aria-label="Request a quote for asbestos, mold, or lead abatement"
+		email="eliteglobalcs1.llc@gmail.com" 
+		address="Nueva York, Nueva York"
+	/>
 		</section>
 					
 

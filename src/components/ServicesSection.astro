@@ -4,6 +4,60 @@ import AsbestosImg from '../assets/Asbestos-abatement.jpg'
 import MoldImg from '../assets/mold.jpg'
 import LeadImg from '../assets/lead-paint-removal.jpg'
 import { Image } from "astro:assets";
+
+interface Props {
+  lang?: "en" | "es";
+}
+const { lang = "en" } = Astro.props;
+
+const heading = lang === "es" ? "Servicios Profesionales" : "Services Provided";
+const subheading = lang === "es"
+  ? "Servicios ambientales con experiencia certificada"
+  : "Professional environmental services with certified expertise";
+const learnMore = lang === "es" ? "Ver más" : "Learn More";
+
+const services = [
+  {
+    href: lang === "es" ? "/es/services/asbestos-abatement" : "/services/asbestos-abatement",
+    title: lang === "es" ? "ELIMINACIÓN DE ASBESTO" : "ASBESTOS ABATEMENT",
+    description: lang === "es" ? "Remoción segura y en cumplimiento normativo" : "Safe & compliant removal",
+    img: AsbestosImg,
+    alt: "Protective worker performing asbestos abatement service",
+    ring: "ring-blue-100 group-hover:ring-blue-400",
+    hover: "group-hover:text-blue-600",
+    learnMoreColor: "text-blue-600",
+  },
+  {
+    href: lang === "es" ? "/es/services/mold-remediation" : "/services/mold-remediation",
+    title: lang === "es" ? "REMEDIACIÓN DE MOHO" : "MOLD REMEDIATION",
+    description: lang === "es" ? "Eliminación efectiva y permanente de moho" : "Effective mold removal",
+    img: MoldImg,
+    alt: "Professional cleaning mold from residential wall",
+    ring: "ring-green-100 group-hover:ring-green-400",
+    hover: "group-hover:text-green-600",
+    learnMoreColor: "text-green-600",
+  },
+  {
+    href: lang === "es" ? "/es/services/lead-abatement" : "/services/lead-abatement",
+    title: lang === "es" ? "ABATIMIENTO DE PLOMO" : "LEAD ABATEMENT",
+    description: lang === "es" ? "Remoción certificada de pintura con plomo" : "Certified lead removal",
+    img: LeadImg,
+    alt: "Technician conducting lead paint removal in an old building",
+    ring: "ring-red-100 group-hover:ring-red-400",
+    hover: "group-hover:text-red-600",
+    learnMoreColor: "text-red-600",
+  },
+  {
+    href: lang === "es" ? "/es/services/cleaning-services" : "/services/cleaning-services",
+    title: lang === "es" ? "SERVICIOS DE LIMPIEZA" : "CLEANING SERVICES",
+    description: lang === "es" ? "Limpieza profesional para hogares y negocios" : "Professional cleaning",
+    img: CleaningImg,
+    alt: "Residential or commercial space being cleaned by a janitorial crew",
+    ring: "ring-yellow-100 group-hover:ring-yellow-400",
+    hover: "group-hover:text-yellow-600",
+    learnMoreColor: "text-yellow-600",
+  },
+] as const;
 ---
 
 <section class=" md:pt-14 lg:pt-16 px-4 sm:px-6 lg:px-8 ">
@@ -11,134 +65,44 @@ import { Image } from "astro:assets";
     
     <div class="text-center mb-10 md:mb-14">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-        Services Provided
+        {heading}
       </h2>
       <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-        Professional environmental services with certified expertise
+        {subheading}
       </p>
     </div>
   
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-      
-      <!-- Asbestos Abatement -->
-      <a 
-        href="/services/asbestos-abatement"
-        class="group flex flex-col items-center no-underline"
-      >
-        <div class="relative w-40 h-40 md:w-44 md:h-44 rounded-full overflow-hidden shadow-xl ring-4 ring-blue-100 group-hover:ring-blue-400 transition-all duration-300 ">
-          <Image 
-            src={AsbestosImg} 
-            alt="Protective worker performing asbestos abatement service"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div class="absolute inset-0  group-hover:to-blue-900/40 transition-all duration-300"></div>
-        </div>
-        
-        <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-blue-600 transition-colors duration-200">
-          ASBESTOS ABATEMENT
-        </h3>
-        
-        <p class="text-sm text-gray-600 text-center mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          Safe & compliant removal
-        </p>
-        
-        <div class="flex items-center text-blue-600 text-sm font-medium mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
-          Learn More
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </div>
-      </a>
-
-      <!-- Mold Remediation -->
-      <a 
-        href="/services/mold-remediation"
-        class="group flex flex-col items-center no-underline"
-      >
-        <div class="relative w-40 h-40 md:w-44 md:h-44 rounded-full overflow-hidden shadow-xl ring-4 ring-green-100 group-hover:ring-green-400 transition-all duration-300">
-          <Image 
-            src={MoldImg} 
-            alt="Professional cleaning mold from residential wall"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div class="absolute inset-0  group-hover:to-green-900/40 transition-all duration-300"></div>
-        </div>
-        
-        <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-green-600 transition-colors duration-200">
-          MOLD REMEDIATION
-        </h3>
-        
-        <p class="text-sm text-gray-600 text-center mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          Effective mold removal
-        </p>
-        
-        <div class="flex items-center text-green-600 text-sm font-medium mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
-          Learn More
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </div>
-      </a>
-
-      <!-- Lead Abatement -->
-      <a 
-        href="/services/lead-abatement"
-        class="group flex flex-col items-center no-underline"
-      >
-        <div class="relative w-40 h-40 md:w-44 md:h-44 rounded-full overflow-hidden shadow-xl ring-4 ring-red-100 group-hover:ring-red-400 transition-all duration-300">
-          <Image 
-            src={LeadImg} 
-            alt="Technician conducting lead paint removal in an old building"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div class="absolute inset-0  group-hover:to-red-900/40 transition-all duration-300"></div>
-        </div>
-        
-        <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-red-600 transition-colors duration-200">
-          LEAD ABATEMENT
-        </h3>
-        
-        <p class="text-sm text-gray-600 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Certified lead removal
-        </p>
-        
-        <div class="flex items-center text-red-600 text-sm font-medium mt-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
-          Learn More
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </div>
-      </a>
-
-      <!-- Cleaning Services -->
-      <a 
-        href="/services/cleaning-services"
-        class="group flex flex-col items-center no-underline"
-      >
-        <div class="relative w-40 h-40 md:w-44 md:h-44 rounded-full overflow-hidden shadow-xl ring-4 ring-yellow-100 md:group-hover:ring-yellow-400 transition-all duration-300">
-          <Image 
-            src={CleaningImg} 
-            alt="Residential or commercial space being cleaned by a janitorial crew"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div class="absolute inset-0 group-hover:to-yellow-900/40 transition-all duration-300"></div>
-        </div>
-        
-        <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-yellow-600 transition-colors duration-200">
-          CLEANING SERVICES
-        </h3>
-        
-        <p class="text-sm text-gray-600 text-center mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          Professional cleaning
-        </p>
-        
-        <div class="flex items-center text-yellow-600 text-sm font-medium mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
-          Learn More
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </div>
-      </a>
+      {services.map((service) => (
+        <a 
+          href={service.href}
+          class="group flex flex-col items-center no-underline"
+        >
+          <div class={`relative w-40 h-40 md:w-44 md:h-44 rounded-full overflow-hidden shadow-xl ring-4 ${service.ring} transition-all duration-300`}>
+            <Image 
+              src={service.img} 
+              alt={service.alt}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 transition-all duration-300"></div>
+          </div>
+          
+          <h3 class={`mt-5 text-center text-gray-900 font-bold text-base md:text-lg ${service.hover} transition-colors duration-200`}>
+            {service.title}
+          </h3>
+          
+          <p class="text-sm text-gray-600 text-center mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+            {service.description}
+          </p>
+          
+          <div class={`flex items-center ${service.learnMoreColor} text-sm font-medium mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300`}>
+            {learnMore}
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+      ))}
 
     </div>
   </div>

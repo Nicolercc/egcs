@@ -37,6 +37,9 @@ export const ui = {
     "about.ctaText": "Request a Quote",
 
     "contact.title": "Contact Our Team",
+    "contact.subtitle":
+      "Get in touch with us for any inquiries or service requests.",
+    "contact.callNow": "Call Now",
 
     "footer.copyright":
       "© {year} Elite Global Cleaning Services. All rights reserved.",
@@ -74,6 +77,9 @@ export const ui = {
     "about.ctaText": "Solicitar Cotización",
 
     "contact.title": "Contacta a Nuestro Equipo",
+    "contact.subtitle":
+      "Comuníquese con nosotros para cualquier consulta o solicitud de servicio.",
+    "contact.callNow": "Llamar Ahora",
 
     "footer.copyright":
       "© {year} Elite Global Cleaning Services. Todos los derechos reservados.",
