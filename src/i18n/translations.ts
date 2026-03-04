@@ -22,7 +22,8 @@ export const ui = {
 		"services.pageSubtitle":
 			"Professional cleaning and abatement services for commercial and residential properties",
 		"services.cleaning.title": "Cleaning Services",
-		"services.cleaning.subtitle": "Professional cleaning solutions for all spaces",
+		"services.cleaning.subtitle":
+			"Professional cleaning solutions for all spaces",
 		"services.cleaning.body":
 			"Our thorough cleaning services are designed to meet the highest standards.",
 		"services.asbestos.title": "Asbestos Abatement",
@@ -101,7 +102,8 @@ export const ui = {
 		"services.pageSubtitle":
 			"Servicios profesionales de limpieza y abatimiento para propiedades comerciales y residenciales",
 		"services.cleaning.title": "Servicios de Limpieza",
-		"services.cleaning.subtitle": "Soluciones de limpieza profesional para todos los espacios",
+		"services.cleaning.subtitle":
+			"Soluciones de limpieza profesional para todos los espacios",
 		"services.cleaning.body":
 			"Nuestros servicios de limpieza están diseñados para cumplir con los más altos estándares.",
 		"services.asbestos.title": "Eliminación de Asbesto",
@@ -120,7 +122,7 @@ export const ui = {
 
 		"home.familyTitle": "EGCS es una empresa familiar",
 		"home.familyBody":
-			"Tratamos cada proyecto como si fuera nuestro propio edificio, priorizando la seguridad, la comunicación clara y la tranquilidad a largo plazo.",
+			"Ofrecemos soluciones inmediatas. Contamos con personal especializado, certificado y con amplia experiencia para llevar a cabo el trabajo. Si le preocupa que su propiedad, hogar o lugar de trabajo pueda estar contaminado con moho, plomo o asbesto, o si necesita un sistema de limpieza continuo, estamos aquí para usted. Llámenos y podemos ayudarle de inmediato. No importa si el daño es pequeño o grande, porque nuestros clientes son importantes para nosotros.",
 
 		"about.introTitle": "Por qué iniciamos EGCS",
 		"about.introBody":
@@ -196,4 +198,3 @@ export function useTranslations(lang: Lang) {
 		return key;
 	};
 }
-

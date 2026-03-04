@@ -37,7 +37,7 @@ const contactInfo = {
 };
 ---
 
-<BaseLayout title="Our Services - Elite Global Cleaning Services">
+<BaseLayout title={`${t("services.pageTitle")} - Elite Global Cleaning Services`}>
     <!-- Services Section -->
     <div class="bg-gray-100">
       <section class="py-16">
@@ -81,7 +81,7 @@ const contactInfo = {
                   {t("services.cleaning.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Image src={CleaningServicesImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
+                  <Image src={CleaningServicesImg} alt={t("services.cleaning.title")} class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
                   {t("services.cleaning.body")}
@@ -116,7 +116,7 @@ const contactInfo = {
                   {t("services.asbestos.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Image src={AsbestosAbatementImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
+                  <Image src={AsbestosAbatementImg} alt={t("services.asbestos.title")} class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
                   {t("services.asbestos.body")}
@@ -157,7 +157,7 @@ const contactInfo = {
                   {t("services.lead.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Image src={LeadAbatementImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
+                  <Image src={LeadAbatementImg} alt={t("services.lead.title")} class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
                   {t("services.lead.body")}
@@ -192,7 +192,7 @@ const contactInfo = {
                   {t("services.mold.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Image src={MoldRemediationImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
+                  <Image src={MoldRemediationImg} alt={t("services.mold.title")} class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
                   {t("services.mold.body")}
