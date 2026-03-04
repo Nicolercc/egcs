@@ -1,21 +1,16 @@
 ---
 import Footer from "../components/footer.astro";
 import Navbar from "../components/Navbar.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/translations";
+import { getLangFromUrl } from "../i18n/translations";
 
-interface Props {
-  title?: string;
-  lang?: "en" | "es";
-}
+const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal & Cleaning in NYC" } = Astro.props;
 
-const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal & Cleaning in NYC", lang = getLangFromUrl(Astro.url) } = Astro.props;
-
+const lang = getLangFromUrl(Astro.url);
 const pathname = Astro.url.pathname;
-const origin = Astro.url.origin;
-const pathEn = pathname.startsWith("/es") ? (pathname.slice(3) || "/") : pathname;
-const pathEs = pathname.startsWith("/es") ? pathname : pathname === "/" ? "/es" : "/es" + pathname;
-const englishUrl = origin + pathEn;
-const spanishUrl = origin + pathEs;
+const pathEn = pathname.replace(/^\/es/, '') || '/';
+const pathEs = pathname.startsWith('/es') ? pathname : '/es' + pathname;
+const baseUrl = "https://www.eliteglobalcleaning.com";
+const canonicalUrl = baseUrl + (lang === 'es' ? pathEs : pathEn);
 ---
 
 <html lang={lang}>
@@ -35,7 +30,7 @@ const spanishUrl = origin + pathEs;
     <meta property="og:title" content="Elite Global Cleaning Services" />
     <meta property="og:description" content="We provide top-tier environmental cleaning services across NYC and the Tri-state area, specializing in asbestos, mold, and lead abatement." />
     <meta property="og:image" content="/social-preview.jpg" />
-    <meta property="og:url" content="https://www.eliteglobalcleaning.com" />
+    <meta property="og:url" content={canonicalUrl} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -44,11 +39,48 @@ const spanishUrl = origin + pathEs;
     <meta name="twitter:image" content="/social-preview.jpg" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.eliteglobalcleaning.com" />
+    <link rel="canonical" href={canonicalUrl} />
 
-    <link rel="alternate" hreflang="en" href={englishUrl} />
-    <link rel="alternate" hreflang="es" href={spanishUrl} />
+    <!-- Alternate language versions (hreflang) -->
+    <link rel="alternate" hreflang="en" href={`${baseUrl}${pathEn}`} />
+    <link rel="alternate" hreflang="es" href={`${baseUrl}${pathEs}`} />
+    <link rel="alternate" hreflang="x-default" href={`${baseUrl}${pathEn}`} />
 
+    <style is:global>
+      /* Prevent FOUC (Flash of Untranslated Content) */
+      .goog-te-spinner-pos {
+        z-index: 1000;
+      }
+    </style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Elite Global Cleaning Services",
+    "image": "https://www.eliteglobalcleaning.com/social-preview.jpg",
+    "url": "https://www.eliteglobalcleaning.com",
+    "telephone": ["+1-929-888-3848", "+1-929-784-8804"],
+    "email": "eliteglobalcs1.llc@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.7128,
+      "longitude": -74.006
+    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "description": "Certified asbestos abatement, mold remediation, lead abatement, and professional cleaning services for homes, schools, and businesses in the NYC Tri-state area.",
+    "sameAs": [
+      "https://www.facebook.com/eliteglobalcs",
+      "https://www.instagram.com/eliteglobalcs"
+    ]
+  }
+  </script>
   
   </head>
   <body>
@@ -60,7 +92,7 @@ const spanishUrl = origin + pathEs;
     </main>
 
     <footer>
-      <Footer />
+      <Footer lang={lang} />
     </footer>
     
    

@@ -1,0 +1,356 @@
+---
+import BaseLayout from '../../../layouts/baselayout.astro';
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="relative bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <!-- <img src="https://source.unsplash.com/1600x600/?asbestos" alt="Asbestos Abatement" class="absolute inset-0 w-full h-full object-cover" /> -->
+    <div class="relative z-20 container mx-auto px-4 py-24">
+      <div class="max-w-3xl">
+        <!-- Badge -->
+        <span class="inline-block bg-orange-500 text-white px-4 py-2 rounded-full mb-4">Servicio Profesional</span>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Servicios de Eliminación de Asbesto</h1>
+        <p class="text-lg md:text-xl text-gray-200 mb-8">
+          La eliminación de asbesto es el proceso de retirar de forma segura los materiales que contienen asbesto en propiedades residenciales y comerciales. Todas las estructuras construidas antes de 1978 deben inspeccionarse para prevenir riesgos de salud. La exposición al asbesto puede causar enfermedades respiratorias graves. Nuestro equipo está certificado para identificar y retirar el asbesto, garantizando un ambiente más seguro para usted y su familia.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <!-- Primary Button -->
+          <a href="/es/quote" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition duration-300">
+            Solicitar Cotización Gratis
+          </a>
+          <!-- Outline Button -->
+          <a href="tel:+19293544114" class="border border-white text-white px-8 py-3 rounded-lg hover:bg-white/10 transition duration-300 flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Servicio de Emergencia
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-16">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Main Content Area -->
+      <div class="lg:col-span-2 space-y-12">
+        <!-- Process Overview -->
+        <section>
+          <h2 class="text-3xl font-bold mb-6">Nuestro Proceso de Eliminación de Asbesto</h2>
+          <p class="text-gray-600 mb-8">
+            El abatimiento de asbesto implica identificar, gestionar y eliminar los peligros de asbesto en edificios e instalaciones. Nuestro enfoque integral garantiza una eliminación exhaustiva protegiendo a los ocupantes, trabajadores y el medio ambiente.
+          </p>
+
+          <!-- Tabs -->
+          <div class="tabs">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-2 mb-6">
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="removal">Remoción</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="encapsulation">Encapsulación</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="enclosure">Confinamiento</button>
+              <!-- <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="removal">Removal</button> -->
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="replacement">Reemplazo</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="remediation">Remediación</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-contents">
+              <!-- Removal -->
+              <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="removal">
+                <div class="grid gap-6">
+                  <div>
+                    <h3 class="text-xl font-semibold mb-4">Proceso de Remoción de Asbesto</h3>
+                    <p class="text-gray-600 mb-4">
+                      Remoción completa de materiales que contienen asbesto de su propiedad. Nuestros profesionales certificados siguen estrictos protocolos de seguridad para garantizar una remoción exhaustiva y segura.
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Configuración de áreas de trabajo selladas con sistemas de presión negativa para evitar la dispersión de fibras de asbesto</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Desmontaje cuidadoso y eliminación de materiales con asbesto usando equipos especializados y equipo de protección</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Aspirado HEPA, limpieza húmeda y pruebas de calidad del aire para garantizar que el área esté libre de asbesto</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Encapsulation -->
+              <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="encapsulation">
+                <div class="grid gap-6">
+                  <div>
+                    <h3 class="text-xl font-semibold mb-4">Proceso de Encapsulación</h3>
+                    <p class="text-gray-600 mb-4">
+                      Cubrir y sellar materiales de asbesto con un recubrimiento especial. Este método es generalmente más seguro para los trabajadores que la remoción y ofrece protección duradera.
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Aplicación de sellador sobre el material con asbesto para unir las fibras y evitar que se dispersen en el aire</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Refuerzo de la superficie para fortalecer el material y reducir el deterioro con el tiempo</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Se realizan inspecciones periódicas para garantizar que el asbesto encapsulado permanezca intacto</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Enclosure -->
+              <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="enclosure">
+                <div class="grid gap-6">
+                  <div>
+                    <h3 class="text-xl font-semibold mb-4">Proceso de Confinamiento</h3>
+                    <p class="text-gray-600 mb-4">
+                      Construcción de una barrera sellada y hermética alrededor de los materiales con asbesto para contener las fibras. Este método se usa frecuentemente en tuberías, conductos y elementos estructurales.
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Construcción de una barrera protectora </span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Sellado de todas las aberturas</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Inspección y mantenimiento periódicos </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Replacement -->
+              <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="replacement">
+                <div class="grid gap-6">
+                  <div>
+                    <h3 class="text-xl font-semibold mb-4">Proceso de Reemplazo</h3>
+                    <p class="text-gray-600 mb-4">
+                      Remoción de materiales con asbesto (como aislamiento, baldosas y revestimientos) y reemplazo con alternativas modernas y seguras. Esta es una solución permanente que elimina completamente el peligro del asbesto.
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Elimina completamente los peligros del asbesto</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Solución permanente</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Aumenta el valor de la propiedad</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remediation -->
+              <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="remediation">
+                <div class="grid gap-6">
+                  <div>
+                    <h3 class="text-xl font-semibold mb-4">Proceso de Remediación</h3>
+                    <p class="text-gray-600 mb-4">
+                      Reducción del riesgo de exposición al asbesto mediante métodos como encapsulación, confinamiento o remoción. Este proceso también puede incluir monitoreo del aire e inspecciones periódicas para garantizar la seguridad a largo plazo.
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Evaluación de riesgos y planificación </span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Medidas de contención y control</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Remoción o estabilización </span>
+                      </li>
+                     
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Las inspecciones periódicas ayudan a mantener la seguridad a largo plazo.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+       <!-- why choose us -->
+       <section class="grid sm:grid-cols-2  gap-6">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="flex items-center gap-4">
+            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold">Profesionales Certificados</h3>
+          </div>
+          <p class="text-gray-600 mt-4">
+             Nuestro equipo está compuesto por profesionales certificados por NYS-DOL, SST, DEP y OSHA con años de experiencia y certificaciones médicas, garantizando la máxima experiencia y seguridad
+          </p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="flex items-center gap-4">
+            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold">Respuesta Rápida</h3>
+          </div>
+          <p class="text-gray-600 mt-4">
+            Servicios de emergencia 24/7 disponibles para necesidades urgentes.
+          </p>
+        </div>
+      </section>
+
+   
+    </div>
+
+    <!-- Sidebar -->
+    <div class="space-y-6">
+      <!-- Contact Card -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-4">Solicitar Consulta</h3>
+        <p class="text-gray-600 mb-6">
+          Obtenga una evaluación y cotización gratuita para sus necesidades de eliminación de asbesto.
+        </p>
+        <div class="space-y-4">
+          <a href="/es/quote" class="w-full bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold text-center block">
+            Agendar Consulta
+          </a>
+          <a href="tel:+19297848804" class="w-full border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold text-center block flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Llámenos Ahora
+          </a>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-4">Nuestras Certificaciones</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-sm">NYS-DOL Certified</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-sm"> DEP Certified</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-sm">Licencia Estatal</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+            </svg>
+            <span class="text-sm">5 Estrellas</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            <span class="text-sm">SST, OSHA Compliant</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency Services -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-4">Servicios de Emergencia</h3>
+        <p class="text-gray-600 mb-4">
+          Respuesta de emergencia 24/7 disponible para situaciones urgentes.
+        </p>
+        <div class="flex items-center gap-2 text-orange-500 mb-4">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          <a href="tel:+19297848804" class="text-yellow-600 hover:text-yellow-700 text-xl">1 929-784-8804</a>
+        </div>
+        <div class="flex items-center gap-2 text-gray-600">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span class="text-sm">Disponible 24/7</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  import { handleTabClick } from "../../../scripts/handleTabClick";
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add click handlers to all tab buttons
+    document.querySelectorAll(".tab-button").forEach((tabButton) => {
+      tabButton.addEventListener("click", handleTabClick);
+    });
+
+    // Activate the first tab by default
+    const firstTab = document.querySelector(".tab-button") as HTMLButtonElement;
+    if (firstTab) {
+      firstTab.click();
+    }
+  });
+  </script>
+</BaseLayout>
+

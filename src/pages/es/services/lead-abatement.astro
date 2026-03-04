@@ -1,0 +1,306 @@
+---
+import BaseLayout from '../../../layouts/baselayout.astro';
+---
+
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="relative bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <!-- <img src="https://source.unsplash.com/1600x600/?lead" alt="Lead Abatement" class="absolute inset-0 w-full h-full object-cover" /> -->
+    <div class="relative z-20 container mx-auto px-4 py-24">
+      <div class="max-w-3xl">
+        <!-- Badge -->
+        <span class="inline-block bg-orange-500 text-white px-4 py-2 rounded-full mb-4">Servicio Profesional</span>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Servicios de Abatimiento de Plomo</h1>
+        <p class="text-lg md:text-xl text-gray-200 mb-8">
+          El abatimiento de plomo es el proceso de reducir de forma segura los peligros de pintura con base de plomo en propiedades residenciales y comerciales. La exposición al plomo puede causar graves problemas de salud, especialmente en niños pequeños y mujeres embarazadas. Nuestro equipo está certificado para identificar y eliminar los peligros del plomo.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <!-- Primary Button -->
+          <a href="/es/quote" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition duration-300">
+            Solicitar Cotización Gratis
+          </a>
+          <!-- Outline Button -->
+          <a href="tel:+19293544114" class="border border-white text-white px-8 py-3 rounded-lg hover:bg-white/10 transition duration-300 flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Servicio de Emergencia
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-16">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Main Content Area -->
+      <div class="lg:col-span-2 space-y-12">
+        <!-- Process Overview -->
+        <section>
+          <h2 class="text-3xl font-bold mb-6">Nuestro Proceso de Abatimiento de Plomo</h2>
+          <p class="text-gray-600 mb-8">
+            El abatimiento de plomo es el proceso de reducir de forma segura los peligros de pintura con base de plomo. Nuestro enfoque integral garantiza una eliminación segura y exhaustiva protegiendo a los ocupantes y trabajadores.
+          </p>
+
+          <!-- Tabs -->
+          <div class="tabs">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-2 mb-6">
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="inspection">Inspección</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="containment">Contención</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="removal">Remoción</button>
+              <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="cleanup">Limpieza</button>
+              <!-- <button class="tab-button p-4 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300" data-tab="inspection-final">Final Inspection</button> -->
+            </div>
+
+            <!-- Tab Content -->
+
+            <!-- Inspection -->
+             <!-- visual inspection to detect lead / without inspector  -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="inspection">
+              <div class="grid  gap-6">
+                <div>
+                  <h3 class="text-xl font-semibold mb-4">Inspección y Evaluación de Riesgos</h3>
+                  <p class="text-gray-600 mb-4">
+                    Realizamos una inspección exhaustiva para determinar la presencia de pintura con base de plomo y evaluar el nivel de riesgo. Los métodos de prueba pueden incluir fluorescencia de rayos X (XRF), muestreo de pintura y análisis de muestras de polvo.
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Detección precisa de plomo</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Evaluación de riesgos integral</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Métodos de prueba de última generación</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Containment -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="containment">
+              <div class="grid  gap-6">
+                <div>
+                  <h3 class="text-xl font-semibold mb-4">Contención y Preparación</h3>
+                  <p class="text-gray-600 mb-4">
+                    Aislamos las áreas afectadas para evitar la propagación de polvo y residuos de plomo. Utilizamos barreras protectoras, láminas de plástico y sistemas de presión de aire negativa para contener los contaminantes.
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Previene la contaminación cruzada</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Garantiza la seguridad de ocupantes y trabajadores</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Uso de sistemas avanzados de contención</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Removal -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="removal">
+              <div class="grid  gap-6">
+                <div>
+                  <h3 class="text-xl font-semibold mb-4">Remoción y Tratamiento de Plomo</h3>
+                  <p class="text-gray-600 mb-4">
+                    Utilizamos métodos aprobados por la industria, como encapsulación, confinamiento, remoción de pintura y reemplazo de componentes, para eliminar de forma segura los peligros de plomo.
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Métodos seguros y eficaces</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Soluciones permanentes</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Cumple con las regulaciones de la EPA</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cleanup -->
+            <div class="tab-content bg-white rounded-lg shadow-lg p-6 hidden" id="cleanup">
+              <div class="grid  gap-6">
+                <div>
+                  <h3 class="text-xl font-semibold mb-4">Limpieza y Descontaminación</h3>
+                  <p class="text-gray-600 mb-4">
+                    Utilizamos aspirado HEPA y limpieza húmeda para eliminar el polvo y los residuos restantes, asegurando que el área esté libre de contaminación.
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Descontaminación exhaustiva</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>Sistemas de filtración HEPA</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <!-- add vaccuming and cleaning the space -->
+                      <span>Aspirado y limpieza del área tratada</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            
+        </section>
+
+        <!-- why choose us -->
+        <section class="grid sm:grid-cols-2  gap-6">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center gap-4">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h3 class="text-xl font-semibold">Profesionales Certificados</h3>
+            </div>
+            <p class="text-gray-600 mt-4">
+              Nuestro equipo está compuesto por profesionales certificados por la EPA con años de experiencia y certificaciones médicas, garantizando la máxima experiencia y seguridad
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center gap-4">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h3 class="text-xl font-semibold">Respuesta Rápida</h3>
+            </div>
+            <p class="text-gray-600 mt-4">
+              Servicios de emergencia 24/7 disponibles para necesidades urgentes de abatimiento de plomo.
+            </p>
+          </div>
+        </section>
+
+      
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <!-- Contact Card -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-4">Solicitar Consulta</h3>
+          <p class="text-gray-600 mb-6">
+            Obtenga una evaluación y cotización gratuita para sus necesidades de abatimiento de plomo.
+          </p>
+          <div class="space-y-4">
+            <a href="/es/quote" class="w-full bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold text-center block">
+              Agendar Consulta
+            </a>
+            <a href="tel:+19297848804" class="w-full border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold text-center block flex items-center justify-center">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              Llámenos Ahora
+            </a>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-4">Nuestras Certificaciones</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-sm">EPA Certified</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-sm">Licencia Estatal</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+              </svg>
+              <span class="text-sm">5 Estrellas</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span class="text-sm">SST, OSHA Compliant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency Services -->
+		<div class="bg-white rounded-lg shadow-lg p-6">
+			<h3 class="text-xl font-semibold mb-4">Servicios de Emergencia</h3>
+			<p class="text-gray-600 mb-4">
+			  Respuesta de emergencia 24/7 disponible para situaciones urgentes.
+			</p>
+			<div class="flex items-center gap-2 text-orange-500 mb-4">
+			  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+			  </svg>
+        <a href="tel:+19297848804" class="text-yellow-600 hover:text-yellow-700 text-xl">1 (929) 784-8804</a>
+			</div>
+			<div class="flex items-center gap-2 text-gray-600">
+			  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+			  </svg>
+			  <span class="text-sm">Disponible 24/7</span>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</main>
+
+	<script>
+		import { handleTabClick } from "../../../scripts/handleTabClick";
+
+		document.querySelectorAll(".tab-button").forEach((tabButton) => {
+			tabButton.addEventListener("click", handleTabClick)
+		})
+
+	</script>
+  </BaseLayout>
+

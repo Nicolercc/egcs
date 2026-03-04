@@ -32,7 +32,7 @@ const t = useTranslations(lang);
 				<p class="text-xl mb-8 text-gray-300">{t("hero.subtitle")}</p>
 				
 				<div class="text-center mt-4">
-					<a class="inline-block bg-yellow-600 rounded-2xl hover:bg-yellow-700 text-white px-6 py-3  transition duration-300" href="/quote">{t("hero.ctaPrimary")}</a>
+					<a class="inline-block bg-yellow-600 rounded-2xl hover:bg-yellow-700 text-white px-6 py-3  transition duration-300" href={lang === "es" ? "/es/quote" : "/quote"}>{t("hero.ctaPrimary")}</a>
 				</div>
 			</div>
 		</section>
@@ -47,15 +47,8 @@ const t = useTranslations(lang);
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10">
 						<div class="flex items-center">
 							<p class="text-lg text-gray-700 md:pr-6 md:py-4">
-								Ofrecemos <strong>soluciones inmediatas</strong>. Contamos con personal 
-								<strong>especializado, certificado y altamente experimentado</strong> para realizar 
-								cada trabajo. Si le preocupa que su propiedad, hogar o lugar de trabajo pueda 
-								estar contaminado con <strong>moho, plomo o asbesto</strong>, o si necesita un 
-								sistema de <strong>limpieza continuo</strong> — estamos aquí para usted. Llámenos 
-								y le ayudamos de inmediato. No importa si el daño es pequeño o grande, porque 
-								<strong>nuestros clientes son lo más importante para nosotros</strong>.
-							  </p>
-							
+								{t("home.familyBody")}
+							</p>
 						</div>
 						<div class="flex items-center">
 							<Carousel />
@@ -68,20 +61,27 @@ const t = useTranslations(lang);
 			</div>
 		
 	
+		<!-- 
+		ISSUE #1: <ServicesSection lang={lang} /> — There is no 'lang' variable defined anywhere in this file, so passing lang={lang} will cause a "Cannot find name 'lang'" error.
+		RESOLUTION: Remove lang={lang} or define 'lang' in your script setup (for example, `const lang = "es"` if you want Spanish).
+
+		ISSUE #2: Calling t("contact.title"), t('contact.subtitle'), t("contact.callNow") — There is no definition or import in this file for the variable or function `t`. The error "Cannot invoke an object which is possibly 'null'" suggests that even if there were a t, it is either undefined or null.
+		RESOLUTION: 
+		- If you want to use translations, you must import or define `t` (a translation function), or replace t("...") with hardcoded Spanish strings.
+		- Example hardcoded: title="Contáctanos", subtitle="Solicita tu cotización para asbesto, moho o plomo", callNow="¡Llame ahora!"
+
+		FIXED VERSION (no translation function, hardcodes Spanish text for demo):
+		-->
+
 		<ServicesSection lang={lang} />
-			  
+
 		<section class="bg-gray-50 p-0 m-0">
-
-				<ContactSection
-		title={t("contact.title")}
-		subtitle={t('contact.subtitle')}
-		 callNow={t("contact.callNow")}
-		aria-label="Request a quote for asbestos, mold, or lead abatement"
-		email="eliteglobalcs1.llc@gmail.com" 
-		address="Nueva York, Nueva York"
-	/>
+			<ContactSection
+				title={t("contact.title")}
+				subtitle={t("contact.subtitle")}
+				callNow={t("contact.callNow")}
+				email="eliteglobalcs1.llc@gmail.com" 
+				address="Nueva York, Nueva York"
+			/>
 		</section>
-					
-
-	</BaseLayout>
 

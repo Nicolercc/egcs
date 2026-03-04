@@ -7,7 +7,12 @@ import LeadAbatementImg from '../../assets/lead-paint-removal.jpg';
 import MoldRemediationImg from '../../assets/mold.jpg';
 import { Image } from 'astro:assets';
 
-const basePath = Astro.url.pathname.includes('/services') ? '/services' : ''
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const basePath = lang === "es" ? "/es/services" : "/services";
 
 // Licenses data
 const licenses = [
@@ -38,11 +43,11 @@ const contactInfo = {
       <section class="py-16">
         <div class="pt-14">
           <h1 class="text-4xl font-bold text-center text-gray-800">
-            Our Services
+            {t("services.pageTitle")}
           </h1>
 
           <p class="text-center text-gray-600 mb-12">
-            Professional cleaning and abatement services for commercial and residential properties
+            {t("services.pageSubtitle")}
           </p>
         </div>
         <hr class="border-t-2 border-gray-300 mb-12" />
@@ -70,16 +75,16 @@ const contactInfo = {
                       />
                     </svg>
                   </div>
-                  <h2 class="ml-3 text-2xl font-bold text-gray-800">Cleaning Services</h2>
+                  <h2 class="ml-3 text-2xl font-bold text-gray-800">{t("services.cleaning.title")}</h2>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  Professional cleaning solutions for all spaces
+                  {t("services.cleaning.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
                   <Image src={CleaningServicesImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
-                  Our thorough cleaning services are designed to meet the highest standards.
+                  {t("services.cleaning.body")}
                 </p>
               </a>
             </div>
@@ -105,16 +110,16 @@ const contactInfo = {
                       />
                     </svg>
                   </div>
-                  <h2 class="ml-3 text-2xl font-bold text-gray-800">Asbestos Abatement</h2>
+                  <h2 class="ml-3 text-2xl font-bold text-gray-800">{t("services.asbestos.title")}</h2>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  Safe and compliant asbestos removal
+                  {t("services.asbestos.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
                   <Image src={AsbestosAbatementImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
-                  Our trained professionals safely and effectively handle asbestos removal.
+                  {t("services.asbestos.body")}
                 </p>
               </a>
             </div>
@@ -146,16 +151,16 @@ const contactInfo = {
                       />
                     </svg>
                   </div>
-                  <h2 class="ml-3 text-2xl font-bold text-gray-800">Lead Abatement</h2>
+                  <h2 class="ml-3 text-2xl font-bold text-gray-800">{t("services.lead.title")}</h2>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  Comprehensive lead paint removal solutions
+                  {t("services.lead.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
                   <Image src={LeadAbatementImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
-                  Certified solutions to ensure safety and compliance with regulations.
+                  {t("services.lead.body")}
                 </p>
               </a>
             </div>
@@ -181,16 +186,16 @@ const contactInfo = {
                       />
                     </svg>
                   </div>
-                  <h2 class="ml-3 text-2xl font-bold text-gray-800">Mold Remediation</h2>
+                  <h2 class="ml-3 text-2xl font-bold text-gray-800">{t("services.mold.title")}</h2>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  Safe and effective mold removal
+                  {t("services.mold.subtitle")}
                 </p>
                 <div class="h-40 bg-gray-100 rounded-lg flex items-center justify-center">
                   <Image src={MoldRemediationImg} alt="Asbestos Abatement" class="w-full h-full object-cover rounded-lg"/>
                 </div>
                 <p class="text-gray-600 mt-4">
-                  Prevent and remove mold growth to restore a healthy environment.
+                  {t("services.mold.body")}
                 </p>
               </a>
             </div>

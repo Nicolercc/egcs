@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../layouts/baselayout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <BaseLayout title="About EGCS - Elite Global Cleaning Services">
@@ -8,15 +12,13 @@ import BaseLayout from "../../layouts/baselayout.astro";
       <!-- Hero / Intro -->
       <section class="text-center space-y-6">
         <p class="text-xs font-semibold tracking-[0.25em] text-yellow-600 uppercase  py-10">
-          About EGCS
+          {t("about.label")}
         </p>
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-          A smaller company by choice. A higher standard by design.
+          {t("about.headline")}
         </h1>
         <p class="max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed">
-          We started EGCS because after years in this industry, we knew it could be done better. 
-          Not just faster or cheaper — but with more honesty, more care, and more accountability 
-          than most companies bother with.
+          {t("about.introBody")}
         </p>
       </section>
 
@@ -24,27 +26,22 @@ import BaseLayout from "../../layouts/baselayout.astro";
       <section class="grid grid-cols-1 md:grid-cols-[1.1fr,1.2fr] gap-10 md:gap-12 items-start">
         <div class="space-y-4">
           <h2 class="text-xl md:text-2xl font-semibold text-gray-900">
-            Founder: <span class="text-yellow-600">Olga Burbano</span>
+            {t("about.founderTitle")}
           </h2>
           <p class="text-gray-600 leading-relaxed">
-            Olga Burbano spent years working inside this industry before she decided to build something of her own. 
-            She'd seen how these jobs were handled — the cut corners, the vague timelines, the clients left confused 
-            about what was actually done in their building. She knew she could do better. So she did.
+            {t("about.founderBody")}
           </p>
           <p class="text-gray-600 leading-relaxed">
-            EGCS is the result of that decision — a company small enough to actually care about every client, 
-            and experienced enough to handle what most can't.
+            {t("about.founderBody2")}
           </p>
         </div>
 
-        <div class="rounded-2xl border border-gray-200 bg-white/70 shadow-sm px-6 py-6 md:px-8 md:py-20">
+        <div class="rounded-2xl border border-gray-200 bg-white/70 shadow-sm px-6 py-6 md:px-8 md:py-20 bg-yellow-50/70 border-yellow-100">
           <h3 class="text-sm font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
-            What drives us
+            {t("about.drivesTitle")}
           </h3>
           <p class="text-gray-700 text-sm md:text-base leading-relaxed">
-            Every project we take on impacts real people — families, students, staff, and workers who need their 
-            spaces to be safe. That responsibility is never “just another job” to us. It’s the reason we show up 
-            the way we do.
+            {t("about.drivesBody")}
           </p>
         </div>
       </section>
@@ -52,16 +49,13 @@ import BaseLayout from "../../layouts/baselayout.astro";
       <!-- Who We Work With -->
       <section class="space-y-6">
         <h2 class="text-xl md:text-2xl font-semibold text-gray-900">
-          Who We Work With
+          {t("about.clientsTitle")}
         </h2>
         <p class="text-gray-600 leading-relaxed">
-          Our clients are school administrators responsible for the safety of hundreds of kids. 
-          Property managers juggling a dozen buildings and a compliance deadline. Homeowners who just got 
-          news they weren't expecting. Industrial facility owners who need the job done right the first time.
+          {t("about.clientsBody")}
         </p>
         <p class="text-gray-600 leading-relaxed">
-          What they all have in common: they need someone they can trust to handle something serious — and they 
-          don't have room for mistakes.
+          {t("about.clientsBody2")}
         </p>
       </section>
 
@@ -69,25 +63,22 @@ import BaseLayout from "../../layouts/baselayout.astro";
       <section class="space-y-6">
         <div class="rounded-2xl border border-yellow-100 bg-yellow-50/70 px-6 py-6 md:px-8 md:py-7">
           <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
-            What We Promise
+            {t("about.promiseTitle")}
           </h2>
           <p class="text-gray-700 leading-relaxed">
-            When you work with EGCS, you're not getting handed off to a crew you've never met. 
-            You get Burbano's team, her standards, and her direct involvement. You'll know what's happening, 
-            why it's happening, and what comes next. That's not a sales pitch — that's just how we operate.
+            {t("about.promiseBody")}
           </p>
         </div>
 
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
           <p class="text-gray-600 text-sm md:text-base">
-            If you need a partner who treats your building — and the people in it — like their own, 
-            we'd be honored to work with you.
+            {t("about.closingLine")}
           </p>
           <a
-            href="/quote"
+            href="/es/quote"
             class="inline-flex items-center justify-center bg-yellow-600 hover:bg-yellow-700 text-white font-semibold text-sm md:text-base p-2  rounded-full shadow-md transition-colors duration-200"
           >
-            Get a Quote
+            {t("about.ctaText")}
           </a>
         </div>
       </section>
