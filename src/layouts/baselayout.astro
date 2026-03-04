@@ -1,11 +1,19 @@
 ---
 import Footer from "../components/footer.astro";
 import Navbar from "../components/Navbar.astro";
+import { getLangFromUrl } from "../i18n/translations";
+
 const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal & Cleaning in NYC" } = Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
+const pathname = Astro.url.pathname;
+const pathEn = pathname.replace(/^\/es/, '') || '/';
+const pathEs = pathname.startsWith('/es') ? pathname : '/es' + pathname;
+const baseUrl = "https://www.eliteglobalcleaning.com";
+const canonicalUrl = baseUrl + (lang === 'es' ? pathEs : pathEn);
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <link rel="preload" as="image" href="/_astro/hero.CZAvY9WT_L8RQA.webp" type="image/webp" />
     <meta charset="UTF-8" />
@@ -22,7 +30,7 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
     <meta property="og:title" content="Elite Global Cleaning Services" />
     <meta property="og:description" content="We provide top-tier environmental cleaning services across NYC and the Tri-state area, specializing in asbestos, mold, and lead abatement." />
     <meta property="og:image" content="/social-preview.jpg" />
-    <meta property="og:url" content="https://www.eliteglobalcleaning.com" />
+    <meta property="og:url" content={canonicalUrl} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -31,7 +39,12 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
     <meta name="twitter:image" content="/social-preview.jpg" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.eliteglobalcleaning.com" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Alternate language versions (hreflang) -->
+    <link rel="alternate" hreflang="en" href={`${baseUrl}${pathEn}`} />
+    <link rel="alternate" hreflang="es" href={`${baseUrl}${pathEs}`} />
+    <link rel="alternate" hreflang="x-default" href={`${baseUrl}${pathEn}`} />
 
     <style is:global>
       /* Prevent FOUC (Flash of Untranslated Content) */
@@ -45,23 +58,23 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Elite Global Cleaning Services",
-    "image": "https://yourdomain.com/assets/landing.jpg",
-    "url": "https://yourdomain.com",
-    "telephone": "+1-555-123-4567",
+    "image": "https://www.eliteglobalcleaning.com/social-preview.jpg",
+    "url": "https://www.eliteglobalcleaning.com",
+    "telephone": ["+1-929-888-3848", "+1-929-784-8804"],
+    "email": "eliteglobalcs1.llc@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 Main St",
-      "addressLocality": "Queens",
+      "addressLocality": "New York",
       "addressRegion": "NY",
-      "postalCode": "11375",
       "addressCountry": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 40.7282,
-      "longitude": -73.7949
+      "latitude": 40.7128,
+      "longitude": -74.006
     },
-    "openingHours": "Mo-Fr 09:00-17:00",
+    "openingHours": "Mo-Su 00:00-23:59",
+    "description": "Certified asbestos abatement, mold remediation, lead abatement, and professional cleaning services for homes, schools, and businesses in the NYC Tri-state area.",
     "sameAs": [
       "https://www.facebook.com/eliteglobalcs",
       "https://www.instagram.com/eliteglobalcs"
@@ -79,7 +92,7 @@ const { title = "Elite Global Cleaning Services | Asbestos, Mold, Lead Removal &
     </main>
 
     <footer>
-      <Footer />
+      <Footer lang={lang} />
     </footer>
     
    

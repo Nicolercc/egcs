@@ -1,6 +1,10 @@
 ---
 const currentYear = new Date().getFullYear();
 
+type Lang = 'en' | 'es';
+const { lang = 'en' }: { lang?: Lang } = Astro.props;
+const prefix = lang === 'es' ? '/es' : '';
+
 const services = [
 
     { name: "Asbestos Management"},
@@ -10,9 +14,9 @@ const services = [
 ];
 
 const companyLinks = [
-    { name: "About Us",  url: "/about" },
-    { name: "Contact",  url: "/quote" },
-    { name: "Get a Quote", url: "/quote" },
+    { name: "About Us",  url: `${prefix}/about` },
+    { name: "Contact",  url: `${prefix}/quote` },
+    { name: "Get a Quote", url: `${prefix}/quote` },
 ];
 
 const socialLinks = [

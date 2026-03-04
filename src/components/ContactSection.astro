@@ -5,6 +5,8 @@ interface Props {
     phone?: string;
     email?: string;
     address?: string;
+    callNow?: string;
+
 }
 
 const {
@@ -12,7 +14,8 @@ const {
     subtitle = "Get in touch with us for any inquiries or service requests.",
     phone = "1 929-784-8804 ",
     email = "eliteglobalcs1.llc@gmail.com",
-    address = "New York, New York"
+    address = "New York, New York",
+    callNow = "Call Now"
 } = Astro.props;
 ---
 
@@ -54,7 +57,7 @@ const {
                     class="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white font-medium text-sm md:text-base px-4 py-2 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
                     aria-label="Call Elite Global Cleaning Services at (929) 888-3848"
                 >
-                    Call Now
+                    {callNow}
                 </a>
             </div>
 

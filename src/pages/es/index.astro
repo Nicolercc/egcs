@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/baselayout.astro'
+import ContactSection from '../../components/ContactSection.astro';
+import ServicesSection from '../../components/ServicesSection.astro';
+import hero from '../../assets/hero.jpeg'
+import Carousel from "@components/carousel.astro";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+
+	<BaseLayout title="Elite Global Cleaning Services">
+		<section class="relative h-screen flex items-center justify-center text-center text-white">
+			<div class="absolute inset-0 z-10 bg-black/50"></div>
+			
+			<div class="absolute inset-0 w-full h-full">
+				<Image 
+					src={hero} 
+					alt="Workers performing professional asbestos, mold removal, lead abatement, and cleaning services in NYC home"
+					class="w-full h-full object-cover"
+					loading="eager"
+					fetchpriority="high"
+				/>
+			</div>
+			
+			<div class="relative z-10 max-w-3xl mx-auto px-4">
+				<!-- <h2 class="text-4xl font-bold mb-4 text-gray-300">Welcome to </h2> -->
+				<h1 class="text-3xl md:text-5xl font-bold m-6 text-gray-200">{t("hero.title")}</h1>
+				<p class="text-xl mb-8 text-gray-300">{t("hero.subtitle")}</p>
+				
+				<div class="text-center mt-4">
+					<a class="inline-block bg-yellow-600 rounded-2xl hover:bg-yellow-700 text-white px-6 py-3  transition duration-300" href={lang === "es" ? "/es/quote" : "/quote"}>{t("hero.ctaPrimary")}</a>
+				</div>
+			</div>
+		</section>
+		
+
+		
+		<div class="md:py-14 py-10 px-8 md:px-16 lg:px-32">
+			<div class="flex flex-col md:flex-row ">
+		
+				<div class="w-full">
+					<h2 class="text-3xl md:text-4xl font-bold mb-7 md:mb-10  text-center ">{t("home.familyTitle")}</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10">
+						<div class="flex items-center">
+							<p class="text-lg text-gray-700 md:pr-6 md:py-4">
+								{t("home.familyBody")}
+							</p>
+						</div>
+						<div class="flex items-center">
+							<Carousel />
+						</div>
+					</div>
+					
+					
+				</div>
+				
+			</div>
+		
+	
+		<!-- 
+		ISSUE #1: <ServicesSection lang={lang} /> — There is no 'lang' variable defined anywhere in this file, so passing lang={lang} will cause a "Cannot find name 'lang'" error.
+		RESOLUTION: Remove lang={lang} or define 'lang' in your script setup (for example, `const lang = "es"` if you want Spanish).
+
+		ISSUE #2: Calling t("contact.title"), t('contact.subtitle'), t("contact.callNow") — There is no definition or import in this file for the variable or function `t`. The error "Cannot invoke an object which is possibly 'null'" suggests that even if there were a t, it is either undefined or null.
+		RESOLUTION: 
+		- If you want to use translations, you must import or define `t` (a translation function), or replace t("...") with hardcoded Spanish strings.
+		- Example hardcoded: title="Contáctanos", subtitle="Solicita tu cotización para asbesto, moho o plomo", callNow="¡Llame ahora!"
+
+		FIXED VERSION (no translation function, hardcodes Spanish text for demo):
+		-->
+
+		<ServicesSection lang={lang} />
+
+		<section class="bg-gray-50 p-0 m-0">
+			<ContactSection
+				title={t("contact.title")}
+				subtitle={t("contact.subtitle")}
+				callNow={t("contact.callNow")}
+				email="eliteglobalcs1.llc@gmail.com" 
+				address="Nueva York, Nueva York"
+			/>
+		</section>
+

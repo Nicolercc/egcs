@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../../layouts/baselayout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title="About EGCS - Elite Global Cleaning Services">
+  <main class="bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <div class="max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-16">
+      <!-- Hero / Intro -->
+      <section class="text-center space-y-6">
+        <p class="text-xs font-semibold tracking-[0.25em] text-yellow-600 uppercase  py-10">
+          {t("about.label")}
+        </p>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+          {t("about.headline")}
+        </h1>
+        <p class="max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed">
+          {t("about.introBody")}
+        </p>
+      </section>
+
+      <!-- Founder -->
+      <section class="grid grid-cols-1 md:grid-cols-[1.1fr,1.2fr] gap-10 md:gap-12 items-start">
+        <div class="space-y-4">
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-900">
+            {t("about.founderTitle")}
+          </h2>
+          <p class="text-gray-600 leading-relaxed">
+            {t("about.founderBody")}
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            {t("about.founderBody2")}
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white/70 shadow-sm px-6 py-6 md:px-8 md:py-20 bg-yellow-50/70 border-yellow-100">
+          <h3 class="text-sm font-semibold tracking-[0.18em] text-gray-500 uppercase mb-3">
+            {t("about.drivesTitle")}
+          </h3>
+          <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+            {t("about.drivesBody")}
+          </p>
+        </div>
+      </section>
+
+      <!-- Who We Work With -->
+      <section class="space-y-6">
+        <h2 class="text-xl md:text-2xl font-semibold text-gray-900">
+          {t("about.clientsTitle")}
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          {t("about.clientsBody")}
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          {t("about.clientsBody2")}
+        </p>
+      </section>
+
+      <!-- What We Promise -->
+      <section class="space-y-6">
+        <div class="rounded-2xl border border-yellow-100 bg-yellow-50/70 px-6 py-6 md:px-8 md:py-7">
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
+            {t("about.promiseTitle")}
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            {t("about.promiseBody")}
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+          <p class="text-gray-600 text-sm md:text-base">
+            {t("about.closingLine")}
+          </p>
+          <a
+            href="/es/quote"
+            class="inline-flex items-center justify-center bg-yellow-600 hover:bg-yellow-700 text-white font-semibold text-sm md:text-base p-2  rounded-full shadow-md transition-colors duration-200"
+          >
+            {t("about.ctaText")}
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
