@@ -333,14 +333,16 @@ import BaseLayout from '../../../layouts/baselayout.astro';
   </main>
 
   <script>
-    import { handleTabClick } from "../../../scripts/handleTabClick";
+  import { handleTabClick } from "../../../scripts/handleTabClick";
 
+  document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(".tab-button").forEach((tabButton) => {
-      tabButton.addEventListener("click", handleTabClick)
-    })
+      tabButton.addEventListener("click", handleTabClick);
+    });
 
-    // Activate the first tab by default
-    //  document.querySelector(".tab-button").click();
+    const firstTab = document.querySelector(".tab-button") as HTMLButtonElement;
+    if (firstTab) firstTab.click();
+  });
   </script>
 </BaseLayout>
 
