@@ -4,9 +4,11 @@ import AsbestosImg from '../assets/Asbestos-abatement.jpg'
 import MoldImg from '../assets/mold.jpg'
 import LeadImg from '../assets/lead-paint-removal.jpg'
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations, type Lang } from "../i18n/translations";
 
-type Lang = 'en' | 'es';
-const { lang }: { lang?: Lang } = Astro.props;
+const { lang: propLang }: { lang?: Lang } = Astro.props;
+const lang = propLang ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const basePath = lang === 'es' ? '/es/services' : '/services';
 ---
 
@@ -15,10 +17,10 @@ const basePath = lang === 'es' ? '/es/services' : '/services';
     
     <div class="text-center mb-10 md:mb-14">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-        Services Provided
+        {t("services.pageTitle")}
       </h2>
       <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-        Professional environmental services with certified expertise
+        {t("services.pageSubtitle")}
       </p>
     </div>
   
@@ -39,11 +41,11 @@ const basePath = lang === 'es' ? '/es/services' : '/services';
         </div>
         
         <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-blue-600 transition-colors duration-200">
-          ASBESTOS ABATEMENT
+          {t("services.asbestos.title")}
         </h3>
         
         <p class="text-sm text-gray-600 text-center mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          Safe & compliant removal
+          {t("services.asbestos.subtitle")}
         </p>
         
         <div class="flex items-center text-blue-600 text-sm font-medium mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
@@ -69,11 +71,11 @@ const basePath = lang === 'es' ? '/es/services' : '/services';
         </div>
         
         <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-green-600 transition-colors duration-200">
-          MOLD REMEDIATION
+          {t("services.mold.title")}
         </h3>
         
         <p class="text-sm text-gray-600 text-center mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          Effective mold removal
+          {t("services.mold.subtitle")}
         </p>
         
         <div class="flex items-center text-green-600 text-sm font-medium mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
@@ -99,11 +101,11 @@ const basePath = lang === 'es' ? '/es/services' : '/services';
         </div>
         
         <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-red-600 transition-colors duration-200">
-          LEAD ABATEMENT
+          {t("services.lead.title")}
         </h3>
         
         <p class="text-sm text-gray-600 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Certified lead removal
+          {t("services.lead.subtitle")}
         </p>
         
         <div class="flex items-center text-red-600 text-sm font-medium mt-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
@@ -129,11 +131,11 @@ const basePath = lang === 'es' ? '/es/services' : '/services';
         </div>
         
         <h3 class="mt-5 text-center text-gray-900 font-bold text-base md:text-lg group-hover:text-yellow-600 transition-colors duration-200">
-          CLEANING SERVICES
+          {t("services.cleaning.title")}
         </h3>
         
         <p class="text-sm text-gray-600 text-center mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-          Professional cleaning
+          {t("services.cleaning.subtitle")}
         </p>
         
         <div class="flex items-center text-yellow-600 text-sm font-medium mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300">
