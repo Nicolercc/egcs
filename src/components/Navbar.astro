@@ -16,34 +16,28 @@ const aboutHref = lang === 'es' ? '/es/about' : '/about';
 const quoteHref = lang === 'es' ? '/es/quote' : '/quote';
 ---
 
-<nav class="fixed top-0 left-0 right-0 shadow-md z-50 bg-white/70 backdrop-blur-md overflow-visible">
+<nav class="fixed top-0 left-0 right-0 shadow-md z-50 bg-white/90 backdrop-blur overflow-visible">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex justify-between items-center py-2">
-              <div class="flex items-center relative h-12 overflow-visible">
-          <a href={homeHref} class="font-semibold text-xl text-gray-800 flex items-center  z-10">
-            <Image 
-              src={Logo2} 
-              alt="Elite Global Cleaning Services Logo" 
-              class="h-52 w-auto object-contain" 
-             
-            />
-          </a>
-        </div>
+      <div class="flex items-center relative h-12 overflow-visible">
+        <a href={homeHref} class="font-semibold text-xl text-gray-800 flex items-center z-10">
+          <Image
+            src={Logo2}
+            alt="Elite Global Cleaning Services Logo"
+            class="h-52 w-auto object-contain"
+          />
+        </a>
+      </div>
 
       <!-- Desktop menu -->
       <div class="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
         <a href={homeHref} class="text-gray-700 hover:text-yellow-600">{t("nav.home")}</a>
         <a href={servicesHref} class="text-gray-700 hover:text-yellow-600">{t("nav.services")}</a>
-        <!-- <a href="/contact" class="text-gray-600 hover:text-yellow-600">Contact</a> -->
         <a href={aboutHref} class="text-gray-700 hover:text-yellow-600">{t("nav.about")}</a>
       </div>
 
       <!-- Desktop CTA and Translator -->
       <div class="hidden md:flex items-center space-x-4">
-<<<<<<< HEAD
-=======
-        
->>>>>>> 61766d766f8a060a8cbabe179d698d63d37898eb
         <div class="flex items-center space-x-1 text-sm font-medium">
           <a href={pathEs} class={lang === 'es' ? 'text-yellow-600 font-bold' : 'text-gray-500 hover:text-yellow-600'}>ES</a>
           <span class="text-gray-300">|</span>
@@ -56,50 +50,166 @@ const quoteHref = lang === 'es' ? '/es/quote' : '/quote';
 
       <!-- Mobile menu button -->
       <div class="md:hidden flex items-center">
-        <button 
-          id="mobile-menu-button" 
-          class="text-gray-500 hover:text-yellow-600 focus:outline-none"
-          aria-label="Toggle menu"
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="text-gray-500 hover:text-yellow-600 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+          aria-label="Open menu"
           aria-expanded="false"
+          aria-controls="mobile-menu"
         >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-transparent ">
-      <div class="py-6">
-        <!-- Top Row - Menu and Logo -->
-        <div class="  mb-2">
-          <!-- Left Column - Page Menu -->
-          <div class="flex flex-col space-y-2 justify-center">
-            <a href={homeHref} class="text-gray-700 text-center  hover:text-yellow-600">{t("nav.home")}</a>
-            <a href={servicesHref} class="text-gray-700 text-center  hover:text-yellow-600">{t("nav.services")}</a>
-            <a href={aboutHref} class="text-gray-700 text-center  hover:text-yellow-600">{t("nav.about")}</a>
+
+
+    <div
+      id="mobile-menu"
+      class="nav-mobile-menu md:hidden fixed inset-x-0 top-16 bottom-0 z-[60] transition-all duration-300 ease-out opacity-0 pointer-events-none"
+      tabindex="-1"
+      aria-modal="true"
+      role="dialog"
+      aria-label="Main navigation"
+      aria-hidden="true"
+    >
+      <div class="relative flex flex-col items-center justify-center min-h-full w-full py-12 px-6 overflow-y-auto">
+
+        <!-- Backdrop -->
+    <!-- BEFORE -->
+<div class="absolute inset-0 backdrop-blur-xl  bg-white/90  z-0" aria-hidden="true"></div>
+
+
+
+        <!-- Content: above the backdrop -->
+        <div class="relative z-10 flex flex-col items-center w-full max-w-xs">
+
+          <!-- Navigation Links -->
+          <nav class="flex flex-col items-center space-y-3 w-full" aria-label="Mobile navigation">
+            <a
+              href={homeHref}
+              class="w-full px-6 py-3 text-lg rounded-xl font-medium text-center text-gray-800 bg-gray-100 hover:bg-yellow-50 hover:text-yellow-600 transition focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+            >
+              {t("nav.home")}
+            </a>
+            <a
+              href={servicesHref}
+              class="w-full px-6 py-3 text-lg rounded-xl font-medium text-center text-gray-800 bg-gray-100 hover:bg-yellow-50 hover:text-yellow-600 transition focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+            >
+              {t("nav.services")}
+            </a>
+            <a
+              href={aboutHref}
+              class="w-full px-6 py-3 text-lg rounded-xl font-medium text-center text-gray-800 bg-gray-100 hover:bg-yellow-50 hover:text-yellow-600 transition focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+            >
+              {t("nav.about")}
+            </a>
+          </nav>
+
+          <!-- Language Switcher -->
+          <div class="flex flex-col items-center gap-2 mt-8" role="group" aria-label="Language">
+            <span class="font-semibold text-gray-600 text-xs uppercase tracking-wider">Switch Language</span>
+            <div class="flex items-center gap-3">
+              <a
+                href={pathEs}
+                class={`inline-flex items-center px-4 py-2 rounded-full border-2 min-w-[4rem] justify-center focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 ${lang === 'es'
+                  ? 'bg-yellow-500 text-white border-yellow-500 font-bold shadow'
+                  : 'bg-white border-gray-300 text-gray-600 hover:bg-yellow-50 hover:text-yellow-700 hover:border-yellow-400'} transition duration-200`}
+                aria-current={lang === 'es' ? "page" : undefined}
+              >
+                <span aria-hidden="true">ES</span>
+              </a>
+              <a
+                href={pathEn}
+                class={`inline-flex items-center px-4 py-2 rounded-full border-2 min-w-[4rem] justify-center focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 ${lang === 'en'
+                  ? 'bg-yellow-500 text-white border-yellow-500 font-bold shadow'
+                  : 'bg-white border-gray-300 text-gray-600 hover:bg-yellow-50 hover:text-yellow-700 hover:border-yellow-400'} transition duration-200`}
+                aria-current={lang === 'en' ? "page" : undefined}
+              >
+                <span aria-hidden="true">EN</span>
+              </a>
+            </div>
           </div>
-          
-          <!-- Right Column - Logo -->
-          <!--  -->
+
+          <!-- Request a Quote CTA -->
+          <a
+            href={quoteHref}
+            class="w-full text-center text-lg font-bold px-6 py-3.5 rounded-full bg-yellow-500 hover:bg-yellow-600 text-white shadow-lg mt-10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+            style="letter-spacing: .04em"
+          >
+            {t("nav.quote")}
+          </a>
+
         </div>
-        
- 
-      
+      </div>
     </div>
   </div>
 </nav>
 
-<script>
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-      mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-      mobileMenu.classList.toggle('hidden');
-    });
+<style>
+  .nav-mobile-menu {
+    transition: opacity 0.3s ease-out;
   }
+  .nav-mobile-menu > div {
+    transform: translateY(-12px);
+    transition: transform 0.28s ease-out;
+  }
+  .nav-mobile-menu-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-mobile-menu-open > div {
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-mobile-menu,
+    .nav-mobile-menu > div {
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    function setMenuOpen(open: boolean) {
+      if (!mobileMenu || !mobileMenuButton) return;
+      const isOpen = open === true;
+      mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+      mobileMenuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      if (isOpen) {
+        mobileMenu.classList.add('nav-mobile-menu-open');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+        mobileMenuClose?.focus();
+      } else {
+        mobileMenu.classList.remove('nav-mobile-menu-open');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        mobileMenuButton.focus();
+      }
+    }
+
+    function isMenuOpen() {
+      return mobileMenu?.classList.contains('nav-mobile-menu-open') ?? false;
+    }
+
+    mobileMenuButton?.addEventListener('click', () => setMenuOpen(!isMenuOpen()));
+    mobileMenuClose?.addEventListener('click', () => setMenuOpen(false));
+
+    mobileMenu?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen()) setMenuOpen(false);
+    });
+  })();
 </script>

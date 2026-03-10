@@ -28,7 +28,6 @@ const imageData = [
   { path: import('../assets/IMG_2599.jpg'), description: "Roof asbestos removal" },
 ];
 
-// Optimize image loading: eager for first, lazy for others
 const images = await Promise.all(
   imageData.map(async (item, index) => ({
     image: (await item.path).default,
@@ -73,20 +72,13 @@ const images = await Promise.all(
         ))}
     </div>
     
-    <!-- Slide indicators -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex space-x-2" role="tablist" aria-label="Slide indicators">
-        {images.map((_, index) => (
-            <button
-                type="button"
-                class={"w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 " + (index === 0 ? "bg-yellow-500 w-6" : "bg-white/50 hover:bg-white/70")}
-                data-carousel-slide-to={index}
-                aria-label={`Go to slide ${index + 1}`}
-                aria-selected={index === 0 ? "true" : "false"}
-                role="tab"
-                tabindex={index === 0 ? "0" : "-1"}
-            ></button>
-        ))}
-    </div>
+    <!-- Slide indicators: rendered by JS into this container -->
+    <div
+        id="carousel-indicators"
+        class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-1.5"
+        role="tablist"
+        aria-label="Slide indicators"
+    ></div>
     
     <!-- Slider controls -->
     <button 
@@ -112,12 +104,10 @@ const images = await Promise.all(
         <span class="sr-only">Next slide</span>
     </button>
 
-    <!-- ARIA live region for screen readers -->
     <div class="sr-only" aria-live="polite" aria-atomic="true" id="carousel-announcement"></div>
 </div>
 
 <style>
-    /* Respect reduced motion preference */
     @media (prefers-reduced-motion: reduce) {
         #indicators-carousel [data-carousel-item] {
             transition: none !important;
@@ -127,11 +117,16 @@ const images = await Promise.all(
         }
     }
 
-    /* Smooth transitions for carousel items */
     #indicators-carousel [data-carousel-item] {
         will-change: opacity;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
+    }
+
+    /* Dot size transitions */
+    #carousel-indicators button {
+        transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+        flex-shrink: 0;
     }
 </style>
 
@@ -141,8 +136,10 @@ const images = await Promise.all(
         if (!carousel) return;
 
         const items = carousel.querySelectorAll('[data-carousel-item]');
-        const indicators = carousel.querySelectorAll('[data-carousel-slide-to]');
+        const indicatorContainer = document.getElementById('carousel-indicators');
         const announcement = document.getElementById('carousel-announcement');
+        const TOTAL = items.length;
+        const WINDOW_SIZE = 5; // dots visible at once
         let currentIndex = 0;
         let autoPlayInterval: ReturnType<typeof setInterval> | null = null;
         let isPaused = false;
@@ -151,9 +148,57 @@ const images = await Promise.all(
         const AUTO_PLAY_DELAY = 5000;
         const SWIPE_THRESHOLD = 50;
 
-        // Preload next image for smoother transitions
+        // ── Dot rendering ──────────────────────────────────────────────
+        function getDotSize(distFromActive: number): { w: string; h: string; opacity: string } {
+            // active=0 → large yellow; ±1 → medium; ±2 → small; beyond → hidden
+            if (distFromActive === 0) return { w: '24px', h: '8px',  opacity: '1' };
+            if (Math.abs(distFromActive) === 1) return { w: '8px',  h: '8px',  opacity: '1' };
+            if (Math.abs(distFromActive) === 2) return { w: '6px',  h: '6px',  opacity: '0.5' };
+            return { w: '0px', h: '0px', opacity: '0' };
+        }
+
+        function renderDots(activeIndex: number): void {
+            if (!indicatorContainer) return;
+            indicatorContainer.innerHTML = '';
+
+            // Calculate window start so active dot is centred
+            let windowStart = activeIndex - Math.floor(WINDOW_SIZE / 2);
+            windowStart = Math.max(0, Math.min(windowStart, TOTAL - WINDOW_SIZE));
+
+            for (let i = windowStart; i < windowStart + WINDOW_SIZE; i++) {
+                if (i >= TOTAL) break;
+                const dist = i - activeIndex;
+                const size = getDotSize(dist);
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                btn.setAttribute('aria-selected', i === activeIndex ? 'true' : 'false');
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('tabindex', i === activeIndex ? '0' : '-1');
+                btn.style.width = size.w;
+                btn.style.height = size.h;
+                btn.style.opacity = size.opacity;
+                btn.style.borderRadius = '9999px';
+                btn.style.backgroundColor = i === activeIndex ? 'rgb(234 179 8)' : 'rgba(255,255,255,0.5)';
+                btn.style.border = 'none';
+                btn.style.cursor = 'pointer';
+                btn.style.padding = '0';
+
+                const capturedIndex = i;
+                btn.addEventListener('click', () => {
+                    goToSlide(capturedIndex);
+                    pauseAutoPlay();
+                    setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
+                });
+
+                indicatorContainer.appendChild(btn);
+            }
+        }
+
+        // ── Slide logic ────────────────────────────────────────────────
         function preloadNextImage(index: number): void {
-            const nextIndex = (index + 1) % items.length;
+            const nextIndex = (index + 1) % TOTAL;
             const nextItem = items[nextIndex] as HTMLElement;
             const nextImage = nextItem?.querySelector('img');
             if (nextImage && !nextImage.complete) {
@@ -168,195 +213,92 @@ const images = await Promise.all(
         function announceSlide(index: number): void {
             if (announcement) {
                 const slide = items[index] as HTMLElement;
-                const label = slide.getAttribute('aria-label') || `Slide ${index + 1} of ${items.length}`;
+                const label = slide.getAttribute('aria-label') || `Slide ${index + 1} of ${TOTAL}`;
                 announcement.textContent = label;
             }
         }
 
-        function showSlide(index: number, direction: 'next' | 'prev' | 'direct' = 'direct'): void {
-            if (index < 0 || index >= items.length) return;
-
-            // Update current index
+        function showSlide(index: number): void {
+            if (index < 0 || index >= TOTAL) return;
             currentIndex = index;
 
-            // Hide all slides
             items.forEach((item, i) => {
-                const element = item as HTMLElement;
+                const el = item as HTMLElement;
                 if (i === index) {
-                    element.classList.remove('opacity-0', 'z-0');
-                    element.classList.add('opacity-100', 'z-10');
-                    element.setAttribute('aria-hidden', 'false');
+                    el.classList.remove('opacity-0', 'z-0');
+                    el.classList.add('opacity-100', 'z-10');
+                    el.setAttribute('aria-hidden', 'false');
                 } else {
-                    element.classList.remove('opacity-100', 'z-10');
-                    element.classList.add('opacity-0', 'z-0');
-                    element.setAttribute('aria-hidden', 'true');
-                }
-            });
-            
-            // Update indicators
-            indicators.forEach((indicator, i) => {
-                const btn = indicator as HTMLButtonElement;
-                if (i === index) {
-                    btn.classList.remove('bg-white/50', 'w-2');
-                    btn.classList.add('bg-yellow-500', 'w-6');
-                    btn.setAttribute('aria-selected', 'true');
-                    btn.setAttribute('tabindex', '0');
-                } else {
-                    btn.classList.remove('bg-yellow-500', 'w-6');
-                    btn.classList.add('bg-white/50', 'w-2');
-                    btn.setAttribute('aria-selected', 'false');
-                    btn.setAttribute('tabindex', '-1');
+                    el.classList.remove('opacity-100', 'z-10');
+                    el.classList.add('opacity-0', 'z-0');
+                    el.setAttribute('aria-hidden', 'true');
                 }
             });
 
-            // Announce to screen readers
+            renderDots(index);
             announceSlide(index);
-
-            // Preload next image
             preloadNextImage(index);
         }
 
-        function nextSlide(): void {
-            const nextIndex = (currentIndex + 1) % items.length;
-            showSlide(nextIndex, 'next');
-        }
-
-        function previousSlide(): void {
-            const prevIndex = (currentIndex - 1 + items.length) % items.length;
-            showSlide(prevIndex, 'prev');
-        }
-
-        function goToSlide(index: number): void {
-            showSlide(index, 'direct');
-        }
+        function nextSlide(): void { showSlide((currentIndex + 1) % TOTAL); }
+        function previousSlide(): void { showSlide((currentIndex - 1 + TOTAL) % TOTAL); }
+        function goToSlide(index: number): void { showSlide(index); }
 
         function startAutoPlay(): void {
             if (autoPlayInterval) return;
             autoPlayInterval = setInterval(() => {
-                if (!isPaused && !document.hidden) {
-                    nextSlide();
-                }
+                if (!isPaused && !document.hidden) nextSlide();
             }, AUTO_PLAY_DELAY);
         }
 
         function stopAutoPlay(): void {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
-                autoPlayInterval = null;
-            }
+            if (autoPlayInterval) { clearInterval(autoPlayInterval); autoPlayInterval = null; }
         }
 
-        function pauseAutoPlay(): void {
-            isPaused = true;
-        }
+        function pauseAutoPlay(): void { isPaused = true; }
+        function resumeAutoPlay(): void { isPaused = false; }
 
-        function resumeAutoPlay(): void {
-            isPaused = false;
-        }
-
-        // Button event listeners
+        // ── Controls ───────────────────────────────────────────────────
         const nextButton = carousel.querySelector('[data-carousel-next]') as HTMLButtonElement;
         const prevButton = carousel.querySelector('[data-carousel-prev]') as HTMLButtonElement;
 
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                nextSlide();
-                pauseAutoPlay();
-                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
-            });
-        }
-
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                previousSlide();
-                pauseAutoPlay();
-                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
-            });
-        }
-
-        // Indicator click events
-        indicators.forEach((indicator, index) => {
-            const btn = indicator as HTMLButtonElement;
-            btn.addEventListener('click', () => {
-                goToSlide(index);
-                pauseAutoPlay();
-                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
-            });
+        nextButton?.addEventListener('click', () => {
+            nextSlide(); pauseAutoPlay(); setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
+        });
+        prevButton?.addEventListener('click', () => {
+            previousSlide(); pauseAutoPlay(); setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
         });
 
-        // Keyboard navigation
         carousel.addEventListener('keydown', (e: KeyboardEvent) => {
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                previousSlide();
-                pauseAutoPlay();
-                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                nextSlide();
-                pauseAutoPlay();
-                setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
-            } else if (e.key === 'Home') {
-                e.preventDefault();
-                goToSlide(0);
-            } else if (e.key === 'End') {
-                e.preventDefault();
-                goToSlide(items.length - 1);
-            }
+            if (e.key === 'ArrowLeft')  { e.preventDefault(); previousSlide(); pauseAutoPlay(); setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide();     pauseAutoPlay(); setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2); }
+            if (e.key === 'Home')       { e.preventDefault(); goToSlide(0); }
+            if (e.key === 'End')        { e.preventDefault(); goToSlide(TOTAL - 1); }
         });
 
-        // Touch/swipe gestures
         carousel.addEventListener('touchstart', (e: TouchEvent) => {
-            touchStartX = e.changedTouches[0].screenX;
-            pauseAutoPlay();
+            touchStartX = e.changedTouches[0].screenX; pauseAutoPlay();
         }, { passive: true });
-
         carousel.addEventListener('touchend', (e: TouchEvent) => {
             touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > SWIPE_THRESHOLD) diff > 0 ? nextSlide() : previousSlide();
             setTimeout(resumeAutoPlay, AUTO_PLAY_DELAY * 2);
         }, { passive: true });
 
-        function handleSwipe(): void {
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > SWIPE_THRESHOLD) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    previousSlide();
-                }
-            }
-        }
-
-        // Pause on hover
         carousel.addEventListener('mouseenter', pauseAutoPlay);
         carousel.addEventListener('mouseleave', resumeAutoPlay);
         carousel.addEventListener('focusin', pauseAutoPlay);
         carousel.addEventListener('focusout', resumeAutoPlay);
 
-        // Pause when page is hidden
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                pauseAutoPlay();
-            } else {
-                resumeAutoPlay();
-            }
+            document.hidden ? pauseAutoPlay() : resumeAutoPlay();
         });
 
-        // Respect reduced motion preference
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) {
-            carousel.classList.add('reduce-motion');
-        }
-
-        // Initialize
+        // ── Init ───────────────────────────────────────────────────────
         showSlide(0);
         startAutoPlay();
-        preloadNextImage(0);
 
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', () => {
-            stopAutoPlay();
-        });
+        window.addEventListener('beforeunload', stopAutoPlay);
     });
 </script>

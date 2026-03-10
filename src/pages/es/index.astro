@@ -61,17 +61,7 @@ const t = useTranslations(lang);
 			</div>
 		
 	
-		<!-- 
-		ISSUE #1: <ServicesSection lang={lang} /> — There is no 'lang' variable defined anywhere in this file, so passing lang={lang} will cause a "Cannot find name 'lang'" error.
-		RESOLUTION: Remove lang={lang} or define 'lang' in your script setup (for example, `const lang = "es"` if you want Spanish).
-
-		ISSUE #2: Calling t("contact.title"), t('contact.subtitle'), t("contact.callNow") — There is no definition or import in this file for the variable or function `t`. The error "Cannot invoke an object which is possibly 'null'" suggests that even if there were a t, it is either undefined or null.
-		RESOLUTION: 
-		- If you want to use translations, you must import or define `t` (a translation function), or replace t("...") with hardcoded Spanish strings.
-		- Example hardcoded: title="Contáctanos", subtitle="Solicita tu cotización para asbesto, moho o plomo", callNow="¡Llame ahora!"
-
-		FIXED VERSION (no translation function, hardcodes Spanish text for demo):
-		-->
+	
 
 		<ServicesSection lang={lang} />
 
