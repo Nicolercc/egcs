@@ -1,80 +1,86 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === 'es' ? '/es' : '';
 const currentYear = new Date().getFullYear();
 
-type Lang = 'en' | 'es';
-const { lang = 'en' }: { lang?: Lang } = Astro.props;
-const prefix = lang === 'es' ? '/es' : '';
-
 const services = [
-
-    { name: "Asbestos Management"},
-    { name: "Cleaning Services" },
-    { name: "Lead Abatement"},
-    { name: "Mold Remediation"},
+  { name: t("services.asbestos.title"), url: `${prefix}/services` },
+  { name: t("services.cleaning.title"), url: `${prefix}/services` },
+  { name: t("services.lead.title"),     url: `${prefix}/services` },
+  { name: t("services.mold.title"),     url: `${prefix}/services` },
 ];
 
 const companyLinks = [
-    { name: "About Us",  url: `${prefix}/about` },
-    { name: "Contact",  url: `${prefix}/quote` },
-    { name: "Get a Quote", url: `${prefix}/quote` },
+  { name: t("nav.about"),   url: `${prefix}/about` },
+  { name: t("nav.quote"),   url: `${prefix}/quote` },
 ];
 
 const socialLinks = [
-    { name: "Facebook", url: "#", icon: "fab fa-facebook-f" },
-    { name: "Twitter", url: "#", icon: "fab fa-twitter" },
-    { name: "LinkedIn", url: "#", icon: "fab fa-linkedin-in" },
+  { name: "Facebook", url: "#", icon: "fab fa-facebook-f" },
+  { name: "Twitter",  url: "#", icon: "fab fa-twitter" },
+  { name: "LinkedIn", url: "#", icon: "fab fa-linkedin-in" },
 ];
 ---
 
 <footer class="bg-gray-800 text-white pt-12 pb-8">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="mb-8 md:mb-0">
-                <h3 class="text-xl font-bold mb-4">EGCS</h3>
-                <p class="text-gray-400 ">Providing expert asbestos and cleaning services to empower your space.</p>
-               
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4 lang-en">Services</h4>
-  
-                <ul class="space-y-2">
-                    {services.map(service => (
-                        <li>
-                            <a class="text-gray-400 hover:text-white transition-colors">
-                                <span class="lang-en">{service.name}</span>
-                            
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4 lang-en">Company</h4>
-         
-                <ul class="space-y-2">
-                    {companyLinks.map(link => (
-                        <li>
-                            <a href={link.url} class="text-gray-400 hover:text-white transition-colors">
-                                <span class="lang-en">{link.name}</span>
-                               
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4 lang-en">Connect With Us</h4>
-              
-                <div class="flex space-x-4">
-                    {socialLinks.map(link => (
-                        <a href={link.url} class="text-gray-400 hover:text-white transition-colors" aria-label={link.name}>
-                            <i class={link.icon}></i>
-                        </a>
-                    ))}
-                </div>
-            </div>
-        </div>
-     
-    </div>
-</footer>
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
+      <!-- Brand -->
+      <div class="mb-8 md:mb-0">
+        <h3 class="text-xl font-bold mb-4">EGCS</h3>
+        <p class="text-gray-400">{t("footer.tagline")}</p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">{t("services.pageTitle")}</h4>
+        <ul class="space-y-2">
+          {services.map(service => (
+            <li>
+              <a href={service.url} class="text-gray-400 hover:text-white transition-colors">
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">{t("about.label")}</h4>
+        <ul class="space-y-2">
+          {companyLinks.map(link => (
+            <li>
+              <a href={link.url} class="text-gray-400 hover:text-white transition-colors">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">{t("contact.getInTouch")}</h4>
+        <div class="flex space-x-4">
+          {socialLinks.map(link => (
+            <a href={link.url} class="text-gray-400 hover:text-white transition-colors" aria-label={link.name}>
+              <i class={link.icon}></i>
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-10 pt-6 border-t border-gray-700 text-center text-gray-500 text-sm">
+      {t("footer.copyright").replace("{year}", String(currentYear))}
+    </div>
+
+  </div>
+</footer>
